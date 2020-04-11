@@ -1,0 +1,9 @@
+h1 dai cuong
+
+form(action="/daicuong/search",method="GET")
+	input(type="text", name = "q" )
+	button Search
+
+ul
+	each dc in daicuong
+		li=dc.name
