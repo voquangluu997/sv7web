@@ -1,6 +1,5 @@
 require('dotenv').config();
 var express = require('express');
-var db = require('./db');
 var daicuongRoute = require('./routes/daicuong.route');
 // var chuyennganhRoute = require('./routes/chuyennganh.route');
 // var avnanglucRoute = require('./routes/avnangluc.route');
@@ -23,7 +22,9 @@ var app = express();
 app.set('view engine', 'pug');
 app.set('views', './views');
 app.use(express.static('public'));
-
+app.get('/',function(req,res){
+	res.render('layouts/index');
+});
 app.use('/daicuong', daicuongRoute);
 // app.use('/chuyennganh', chuyennganhRoute);
 // app.use('/avnangluc', avnanglucRoute);
@@ -35,9 +36,7 @@ app.use('/daicuong', daicuongRoute);
 // var bodyParse = require('body-parser');
 // app.use(express.json()) // for parsing application/json
 // app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
-app.get('/',function(req,res){
-	res.render('layouts/index');
-});
+
 
 
 

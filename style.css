@@ -241,7 +241,7 @@ hr.socket{
 .search-input{
 	position: relative;
 	text-align: center;
-	/*border-radius: 10px;*/
+	border-radius: 10px;
 	width: 20%;
 	color: white;
 	font-size: 1.2rem;
@@ -252,10 +252,8 @@ background: linear-gradient(143deg, rgba(22,204,238,1) 0%, rgba(20,162,185,1) 21
 .search-form button {
 	position: relative;
 	border: none; 
-	right: 33px;
+	right: 35px;
 	background-color: rgba(0,0,0,0);
-	font-size: 1.1rem;
-
 }
 .search-form button {
 	color: white ;
