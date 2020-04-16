@@ -1,0 +1,75 @@
+*{
+	box-sizing: border-box;
+	}
+
+.form{
+	position: relative;	
+}
+	
+.logo{
+	width: 50px;
+	border-radius: 50%;
+	margin-right: .81rem;
+}
+
+.say-hi{
+	margin: 1.5rem 0 1.2rem 0;
+	display: flex;
+	align-items: center;
+	color: #555	;
+	margin-bottom: .2rem;
+}
+
+.say-hi h5{
+	/*font-size: 1.2rem;*/
+
+}
+
+.content{
+	background-color: #eee;
+	height: 100vh;
+	border-radius: 1rem;
+}
+.forgot-password{
+	align-items: center;
+	justify-content: space-between;
+}
+
+.btn-social{
+margin-top: 1.3rem;
+
+}
+
+.btn-facebook{
+	color: white;
+	background-color: #3B5998;
+}
+
+.btn-facebook:hover {
+	background-color: #3b5966;
+	color: white;
+}
+	button i{
+ 	font-size: 1.2rem;
+ 	margin-right: .4rem;	
+}
+
+.btn-google{
+	color: white;
+	background-color: #ea4335;
+}
+.btn-google:hover {
+	background-color: #994335;
+	color: white;
+}
+
+.home{
+	color: #222;
+	position: absolute;
+	top: .3rem;
+	right: .5rem;
+}
+.title{
+	color: #777;
+	text-align: center;
+}

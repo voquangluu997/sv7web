@@ -206,7 +206,8 @@ hr.socket{
 
 .sub-list{
 	justify-content: center;
-	margin: 1rem 0; 
+	margin: 1rem 0;
+
  	
 }
 
@@ -218,7 +219,7 @@ hr.socket{
 }
 
 .sub-component i{
-	padding : 0 2px;
+	padding :  2px 8px;
 }
 
 .sub-title{

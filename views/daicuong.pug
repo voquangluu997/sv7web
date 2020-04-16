@@ -1,12 +1,3 @@
-
-//- h1 search 
-//- form(action="/daicuong/search", method="GET")
-//- 	input(name="q" type="text")
-//- 	button search 
-//- ul
-//- 	each dc in daicuong
-//- 		li dc.name 
- 		
 head
   // Required meta tags
   meta(charset='utf-8')
@@ -19,7 +10,7 @@ head
   title sv7
 .btn-fixed
   a.btn.btn-warning.btn-sm.btn-course(href='/mylist', target='_blank') My list
-  a.btn.btn-primary.btn-sm.btn-course(href='/user/login', target='_blank') Login/Register 
+  a.btn.btn-primary.btn-sm.btn-course(href='/login', target='_blank') Login/Register 
 // start home section
 #home
   // navigation
@@ -55,8 +46,16 @@ head
       .col-12
         h3.heading  &Dstrok;&#x1EC0; THI &Dstrok;&#x1EA0;I C&#x1AF;&#x1A0;NG 
         .heading-underline
-      
-      .col-12.mt-3
+      .btn-list.col-12.row
+        .col-3
+          a.btn.btn-outline-light.btn-lg.btn-course(href='/daicuong', target='_blank') &Dstrok;&#x1EC1; thi &dstrok;&#x1EA1;i c&#x1B0;&#x1A1;ng 
+        .col-3
+          a.btn.btn-outline-light.btn-lg.btn-course(href='/chuyennganh', target='_blank') &Dstrok;&#x1EC1; thi chuy&ecirc;n ng&agrave;nh
+        .col-3
+          a.btn.btn-outline-light.btn-lg.btn-course(href='/anhvan', target='_blank')  A.V&abreve;n n&abreve;ng l&#x1EF1;c
+        .col-3
+          a.btn.btn-outline-light.btn-lg.btn-course(href='/toeic', target='_blank')  Toeic Ielts Free 
+      .col-12.mt-5
         form.search-form(action='/daicuong/search',method="GET")
           input.search-input(type='text', name='q', placeholder='Nhập tên môn cần tìm..')
           button(type="submit" )
@@ -67,18 +66,7 @@ head
             a.sub-title(href='#')=dc.name
             i.fas.fa-star
         else
-          p Khong tim thay kết quả đã nhập
-          
-      .btn-list.col-12.row
-        .col-3
-          a.btn.btn-outline-light.btn-lg.btn-course(href='/daicuong', target='_blank') &Dstrok;&#x1EC1; thi &dstrok;&#x1EA1;i c&#x1B0;&#x1A1;ng 
-        .col-3
-          a.btn.btn-outline-light.btn-lg.btn-course(href='/chuyennganh', target='_blank') &Dstrok;&#x1EC1; thi chuy&ecirc;n ng&agrave;nh
-        .col-3
-          a.btn.btn-outline-light.btn-lg.btn-course(href='/anhvan', target='_blank')  A.V&abreve;n n&abreve;ng l&#x1EF1;c
-        .col-3
-          a.btn.btn-outline-light.btn-lg.btn-course(href='/toeic', target='_blank')  Toeic Ielts Free 
-
+          h3 No results found...
       .more-list.col-12.row
         .col-lg-6.col-12.pt-5
           .card.mb-lg-5(style='max-width: 540px;')
@@ -105,7 +93,6 @@ head
                   p.card-text
                     small.text-muted
                       | &Dstrok;&#x1EA7;y &dstrok;&#x1EE7; c&aacute;c kh&oacute;a h&#x1ECD;c &amp; l&#x1ED9; tr&igrave;nh t&#x1EEB; c&#x1A1; b&#x1EA3;n &dstrok;&#x1EBF;n n&acirc;ng cao l&#x1EAD;p tr&igrave;nh, ch&#x1EC9;nh s&#x1EED;a &#x1EA3;nh, c&aacute;c k&#x1EF9; n&abreve;ng v&agrave; c&ocirc;ng c&#x1EE5; hay ho gi&uacute;p cu&#x1ED9;c s&#x1ED1;ng b&#x1EA1;n th&ecirc;m tuy&#x1EC7;t v&#x1EDD;i h&#x1A1;n
-
     // end rơw dark
   // end fixed background
 // end cources section
@@ -152,15 +139,9 @@ head
     .heading-underline
   .row.text-center
     .col-md-6
-      .video-object
-        iframe(src='https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FSVNam7BKDN%2Fvideos%2F441136530028919%2F&show_text=0&width=560', width='560', height='276', style='border:none;overflow:hidden', scrolling='no', frameborder='0', allowtransparency='true', allowfullscreen='true')
-        div
-          a.tips-title.mt-2(href='https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FSVNam7BKDN%2Fvideos%2F441136530028919%2F&show_text=0&width=560') M&#x1EB9;o nh&#x1EAF;n tin tr&ecirc;n Messenger r&#x1EA5;t h&#x1EEF;u &iacute;ch  kh&ocirc;ng ph&#x1EA3;i ai c&utilde;ng bi&#x1EBF;t 
+      | video2
     .col-md-6
-      .video-object
-        iframe(src='https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FSVNam7BKDN%2Fvideos%2F441136530028919%2F&show_text=0&width=560', width='560', height='276', style='border:none;overflow:hidden', scrolling='no', frameborder='0', allowtransparency='true', allowfullscreen='true')
-        div
-          a.tips-title.mt-2(href='https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FSVNam7BKDN%2Fvideos%2F441136530028919%2F&show_text=0&width=560') L&#x1EA5;y &dstrok;&#x1EC1; thi v&#x1EDB;i ch&#x1EC9; 1 l&#x1EA7;n click 
+      | video1
 // end tips section
 // start contact section
 #contact.offset
@@ -185,22 +166,25 @@ head
           i.fab.fa-twitter-square  
         a(href='https://www.youtube.com/watch?v=SYzqCr0C6z4&t=56s', target='_blank')
           i.fab.fa-youtube-square  
-      .col-6.text-right
-        a(href='https://info.flagcounter.com/ikSZ')
-          img(src='https://s01.flagcounter.com/countxl/ikSZ/bg_000000/txt_FFFFFF/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/', alt='Flag Counter', border='0')
-      .col-6.text-left
+
+      .col-12.text-center.mt-2
         .fb-page(data-href='https://www.facebook.com/SVNam7BKDN/', data-tabs='timeline', data-width='273', data-height='140', data-small-header='true', data-adapt-container-width='true', data-hide-cover='false', data-show-facepile='true')
           blockquote.fb-xfbml-parse-ignore(cite='https://www.facebook.com/SVNam7BKDN/')
             a(href='https://www.facebook.com/SVNam7BKDN/') Ch&uacute; Sinh Vi&ecirc;n N&abreve;m 7
+      .col-12.text-center
+        a(href='https://info.flagcounter.com/ikSZ')
+          img(src='https://s01.flagcounter.com/countxl/ikSZ/bg_000000/txt_FFFFFF/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/', alt='Flag Counter', border='0')
+
       hr.socket
-      marquee(behavior='alternate')     &copy; C&aacute;m &#x1A1;n c&aacute;c b&#x1EA1;n &dstrok;&atilde; &dstrok;&#x1ED3;ng h&agrave;nh c&ugrave;ng Ch&uacute; sinh vi&ecirc;n n&abreve;m 7 ye ye ye ye 
+      marquee(behavior='alternate')    &copy; C&aacute;m &#x1A1;n c&aacute;c b&#x1EA1;n &dstrok;&atilde; &dstrok;&#x1ED3;ng h&agrave;nh c&ugrave;ng Ch&uacute; sinh vi&ecirc;n n&abreve;m 7 ye ye ye ye 
 // end contact section
 // Optional JavaScript
 // jQuery first, then Popper.js, then Bootstrap JS
 script.
   window.sr = ScrollReveal();
-  sr.reveal('.jumbotron',{duration:2000});
-  sr.reveal('.container-fluid',{duration:2000});
-  sr.reveal('.row',{duration:2000});
-  sr.reveal('.offset',{duration:2000});
+  sr.reveal('.jumbotron',{duration:1000});
+  sr.reveal('.container-fluid',{duration:1000});
+  sr.reveal('.row',{duration:1000});
+  sr.reveal('.offset',{duration:1000});
 script(async='', defer='', crossorigin='anonymous', src='https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=591365718039637&autoLogAppEvents=1')
+

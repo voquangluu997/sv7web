@@ -11,6 +11,7 @@ module.exports.index =  function(req,res){
 module.exports.search = function(req,res){
 	var  q= req.query.q;
 	 	Daicuong.find().then(function(daicuong){
+	 		
 	 		var matched = daicuong.filter(function(dc){
 			return dc.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;	
 			});

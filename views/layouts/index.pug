@@ -8,13 +8,16 @@ head
   script(src='https://unpkg.com/scrollreveal')
   script(async='', defer='', src='https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2')
   title sv7
+.btn-fixed
+  a.btn.btn-warning.btn-sm.btn-course(href='/mylist', target='_blank') My list
+  a.btn.btn-primary.btn-sm.btn-course(href='/login', target='_blank') Login/Register 
 // start home section
 #home
   // navigation
   nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
     a.navbar-brand(href='/')
       img(src='images/logo2.jpg')
-      |  Ch&uacute; Sv n&abreve;m 7 
+      |  Sv 7 
       .fb-like(data-href='https://www.facebook.com/SVNam7BKDN/', data-width='', data-layout='button_count', data-action='like', data-size='small', data-share='true')
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive')
       span.navbar-toggler-icon
@@ -41,41 +44,43 @@ head
   .fixed-background
     .row.dark.text-center
       .col-12
-        h3.heading  WEB &Dstrok;&#x1EC0; THI &Dstrok;H B&Aacute;CH KHOA 
+        h3.heading  &Dstrok;&#x1EC0; THI &Dstrok;&#x1EA0;I C&#x1AF;&#x1A0;NG 
         .heading-underline
-      .col-3
-        a.btn.btn-outline-light.btn-lg.btn-course(href='/daicuong', target='_blank') &Dstrok;&#x1EC1; thi &dstrok;&#x1EA1;i c&#x1B0;&#x1A1;ng 
-      .col-3
-        a.btn.btn-outline-light.btn-lg.btn-course(href='/chuyennganh', target='_blank') &Dstrok;&#x1EC1; thi chuy&ecirc;n ng&agrave;nh
-      .col-3
-        a.btn.btn-outline-light.btn-lg.btn-course(href='/anhvan', target='_blank')  A.V&abreve;n n&abreve;ng l&#x1EF1;c
-      .col-3
-        a.btn.btn-outline-light.btn-lg.btn-course(href='/toeic', target='_blank')  Toeic Ielts Free 
-      .col-lg-6.col-12.pt-5
-        .card.mb-lg-5(style='max-width: 540px;')
-          .row.no-gutters
-            .col-4
-              a(href='/hocdan', target='_blank')
-                img.card-img(src='images/guitar.jpg', alt='')
-            .col-8
-              .card-body
-                a.course-title(href='/hocdan')
-                  h6.card-title H&#x1ECC;C GUITAR
-                p.card-text-md
-                  small.text-muted CON &Dstrok;&#x1AF;&#x1EDC;NG NHANH NH&#x1EA4;T &Dstrok;&Acirc;M TH&#x1EB2;NG &Dstrok;&#x1EBE;N TIM CRUSH
-      .col-lg-6.col-12.pt-5
-        .card.mb-lg-5(style='max-width: 540px;')
-          .row.no-gutters
-            .col-4
-              a(href='/laptrinh', target='_blank')
-                img.card-img(src='images/it.jpg')
-            .col-8
-              .card-body
-                a.course-title(href='/laptrinh')
-                  h6.card-title H&#x1ECC;C L&#x1EAC;P TR&Igrave;NH
-                p.card-text
-                  small.text-muted
-                    | &Dstrok;&#x1EA7;y &dstrok;&#x1EE7; c&aacute;c kh&oacute;a h&#x1ECD;c &amp; l&#x1ED9; tr&igrave;nh t&#x1EEB; c&#x1A1; b&#x1EA3;n &dstrok;&#x1EBF;n n&acirc;ng cao l&#x1EAD;p tr&igrave;nh, ch&#x1EC9;nh s&#x1EED;a &#x1EA3;nh, c&aacute;c k&#x1EF9; n&abreve;ng v&agrave; c&ocirc;ng c&#x1EE5; hay ho gi&uacute;p cu&#x1ED9;c s&#x1ED1;ng b&#x1EA1;n th&ecirc;m tuy&#x1EC7;t v&#x1EDD;i h&#x1A1;n
+      .btn-list.col-12.row
+        .col-3
+          a.btn.btn-outline-light.btn-lg.btn-course(href='/daicuong', target='_blank') &Dstrok;&#x1EC1; thi &dstrok;&#x1EA1;i c&#x1B0;&#x1A1;ng 
+        .col-3
+          a.btn.btn-outline-light.btn-lg.btn-course(href='/chuyennganh', target='_blank') &Dstrok;&#x1EC1; thi chuy&ecirc;n ng&agrave;nh
+        .col-3
+          a.btn.btn-outline-light.btn-lg.btn-course(href='/anhvan', target='_blank')  A.V&abreve;n n&abreve;ng l&#x1EF1;c
+        .col-3
+          a.btn.btn-outline-light.btn-lg.btn-course(href='/toeic', target='_blank')  Toeic Ielts Free 
+      .more-list.col-12.row
+        .col-lg-6.col-12.pt-5
+          .card.mb-lg-5(style='max-width: 540px;')
+            .row.no-gutters
+              .col-4
+                a(href='/hocdan', target='_blank')
+                  img.card-img(src='images/guitar.jpg', alt='')
+              .col-8
+                .card-body
+                  a.course-title(href='/hocdan')
+                    h6.card-title H&#x1ECC;C GUITAR
+                  p.card-text-md
+                    small.text-muted CON &Dstrok;&#x1AF;&#x1EDC;NG NHANH NH&#x1EA4;T &Dstrok;&Acirc;M TH&#x1EB2;NG &Dstrok;&#x1EBE;N TIM CRUSH
+        .col-lg-6.col-12.pt-5
+          .card.mb-lg-5(style='max-width: 540px;')
+            .row.no-gutters
+              .col-4
+                a(href='/laptrinh', target='_blank')
+                  img.card-img(src='images/it.jpg')
+              .col-8
+                .card-body
+                  a.course-title(href='/laptrinh')
+                    h6.card-title H&#x1ECC;C L&#x1EAC;P TR&Igrave;NH
+                  p.card-text
+                    small.text-muted
+                      | &Dstrok;&#x1EA7;y &dstrok;&#x1EE7; c&aacute;c kh&oacute;a h&#x1ECD;c &amp; l&#x1ED9; tr&igrave;nh t&#x1EEB; c&#x1A1; b&#x1EA3;n &dstrok;&#x1EBF;n n&acirc;ng cao l&#x1EAD;p tr&igrave;nh, ch&#x1EC9;nh s&#x1EED;a &#x1EA3;nh, c&aacute;c k&#x1EF9; n&abreve;ng v&agrave; c&ocirc;ng c&#x1EE5; hay ho gi&uacute;p cu&#x1ED9;c s&#x1ED1;ng b&#x1EA1;n th&ecirc;m tuy&#x1EC7;t v&#x1EDD;i h&#x1A1;n
     // end rơw dark
   // end fixed background
 // end cources section
@@ -94,9 +99,9 @@ head
           .col-md-8
             blockquote
               i.fas.fa-quote-left
-              |    &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              |    &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              |    &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              |                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              |                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              |                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
               hr.clients-hr
               cite &mdash; -Eric, Small Business Owner
       .col-md-6.clients
@@ -106,10 +111,10 @@ head
           .col-md-8
             blockquote
               i.fas.fa-quote-left
-              |    &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              |    &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              |    &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              |    &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              |                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              |                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              |                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              |                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
               hr.clients-hr
               cite &mdash; -Rachel, Professional Photographer
     // end row
@@ -122,15 +127,9 @@ head
     .heading-underline
   .row.text-center
     .col-md-6
-      .video-object
-        iframe(src='https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FSVNam7BKDN%2Fvideos%2F441136530028919%2F&show_text=0&width=560', width='560', height='276', style='border:none;overflow:hidden', scrolling='no', frameborder='0', allowtransparency='true', allowfullscreen='true')
-        div
-          a.tips-title.mt-2(href='https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FSVNam7BKDN%2Fvideos%2F441136530028919%2F&show_text=0&width=560') M&#x1EB9;o nh&#x1EAF;n tin tr&ecirc;n Messenger r&#x1EA5;t h&#x1EEF;u &iacute;ch  kh&ocirc;ng ph&#x1EA3;i ai c&utilde;ng bi&#x1EBF;t 
+      | video2
     .col-md-6
-      .video-object
-        iframe(src='https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FSVNam7BKDN%2Fvideos%2F441136530028919%2F&show_text=0&width=560', width='560', height='276', style='border:none;overflow:hidden', scrolling='no', frameborder='0', allowtransparency='true', allowfullscreen='true')
-        div
-          a.tips-title.mt-2(href='https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FSVNam7BKDN%2Fvideos%2F441136530028919%2F&show_text=0&width=560') L&#x1EA5;y &dstrok;&#x1EC1; thi v&#x1EDB;i ch&#x1EC9; 1 l&#x1EA7;n click 
+      | video1
 // end tips section
 // start contact section
 #contact.offset
@@ -142,27 +141,30 @@ head
         p
           | G&#x1EED;i &dstrok;&#x1EC1; thi b&#x1EA1;n c&ograve;n gi&#x1EEF; trong m&aacute;y v&#x1EC1; FanPage FB &quot;CH&Uacute; SINH VI&Ecirc;N N&Abreve;M 7&quot; ho&#x1EB7;c email b&ecirc;n d&#x1B0;&#x1EDB;i, m&igrave;nh s&#x1EBD; t&#x1ED5;ng h&#x1EE3;p &dstrok;&#x1EC3; x&acirc;y d&#x1EF1;ng v&agrave;o b&#x1ED9; &dstrok;&#x1EC1; chung &dstrok;&#x1EC3; gi&uacute;p sinh vi&ecirc;n B&aacute;ch khoa ch&uacute;ng ta c&oacute; m&#x1ED9;t k&igrave; thi d&#x1EC5; d&agrave;ng h&#x1A1;n nh&eacute;^^!
       .col-md-2
-      .col-4.text-right
-        a(href='https://info.flagcounter.com/yhAp')
-          img(src='https://s01.flagcounter.com/count2/yhAp/bg_383838/txt_EDA361/border_BEFF26/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/', alt='Flag Counter', border='0')
-      .col-3.text-center.info
+      .col-12.text-center.info
         strong  Contact info 
         p
           | (888) 888-8888 
           br
-          |  nang35352@gmail.com
+          a(href='mailto:nang35352@gmail.com')
+            | Email: nang35352@gmail.com
         a(href='https://www.facebook.com/SVNam7BKDN/', target='_blank')
           i.fab.fa-facebook-square  
         a(href='https://www.facebook.com/SVNam7BKDN/', target='_blank')
           i.fab.fa-twitter-square  
         a(href='https://www.youtube.com/watch?v=SYzqCr0C6z4&t=56s', target='_blank')
           i.fab.fa-youtube-square  
-      .col-4.text-left
+
+      .col-12.text-center.mt-2
         .fb-page(data-href='https://www.facebook.com/SVNam7BKDN/', data-tabs='timeline', data-width='273', data-height='140', data-small-header='true', data-adapt-container-width='true', data-hide-cover='false', data-show-facepile='true')
           blockquote.fb-xfbml-parse-ignore(cite='https://www.facebook.com/SVNam7BKDN/')
             a(href='https://www.facebook.com/SVNam7BKDN/') Ch&uacute; Sinh Vi&ecirc;n N&abreve;m 7
+      .col-12.text-center
+        a(href='https://info.flagcounter.com/ikSZ')
+          img(src='https://s01.flagcounter.com/countxl/ikSZ/bg_000000/txt_FFFFFF/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/', alt='Flag Counter', border='0')
+
       hr.socket
-      marquee(behavior='alternate')     &copy; C&aacute;m &#x1A1;n c&aacute;c b&#x1EA1;n &dstrok;&atilde; &dstrok;&#x1ED3;ng h&agrave;nh c&ugrave;ng Ch&uacute; sinh vi&ecirc;n n&abreve;m 7 ye ye ye ye 
+      marquee(behavior='alternate')    &copy; C&aacute;m &#x1A1;n c&aacute;c b&#x1EA1;n &dstrok;&atilde; &dstrok;&#x1ED3;ng h&agrave;nh c&ugrave;ng Ch&uacute; sinh vi&ecirc;n n&abreve;m 7 ye ye ye ye 
 // end contact section
 // Optional JavaScript
 // jQuery first, then Popper.js, then Bootstrap JS

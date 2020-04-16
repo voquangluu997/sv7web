@@ -1,0 +1,44 @@
+//- doctype html
+//- head
+//-   title Chú sinh viên năm 7
+//-   meta(charset='utf-8')
+//-   meta(name='viewport', content='width=device-width, initial-scale=1')
+//-   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+//-   link(rel='stylesheet', type='text/css', href='../user.css')
+//-   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
+//-   script(src='https://kit.fontawesome.com/443ff89b73.js', crossorigin='anonymous')
+//-   link(rel='icon', href='images/logo2.jpg')
+//- .col-12.row
+//-   .col-lg-4.col-1
+//-   .col-lg-4.col-10.content
+//-     a.say-hi(href='/')
+//-       img.logo(src='../images/logo.png')
+//-       h5  Chú sinh viên năm 7
+//-     h3.title  Register
+//-     form.form(action="/register", method="POST")
+//-       .form-group
+//-         label(for='name') Full name
+//-         input#email.form-control.mb-2(type='name', name="name")
+//-         label(for='email') Email address
+//-         input#email.form-control(type='email', name="email")
+//-         small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
+//-       .form-group
+//-         label(for='exampleInputPassword1') Password
+//-         input#exampleInputPassword1.form-control(type='password', name='password')
+//-       //- if errors
+//-       //-   each err in errors
+//-       //-     h5.alert.alert-danger=errors
+
+//-       .form-group.form-check
+//-       .forgot-password.d-flex
+//-         button.btn.btn-primary(type='submit' name = "register") Register
+//-         a(href='/forgotPassword')  Quên mật khẩu?
+//-       button.btn.btn-block.btn-facebook.btn-social
+//-         i.fa.fa-facebook
+//-         | Log in with Facebook
+//-       button.btn.btn-block.btn-google.btn-social.mt-3
+//-         i.fa.fa-google
+//-         | Log in with Google
+//-       a.register.d-flex.mt-3(href='/login')
+//-         | Chuyển sang Login
+//-   .col-lg-4.col-1
