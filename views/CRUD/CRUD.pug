@@ -1,0 +1,24 @@
+doctype html
+head
+  title
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+  
+h1.text-center  ADMINSTRATOR 
+table.table.container
+  each f in field
+    if field 
+      tr
+        td
+          a(href='/CRUD/manager/'+f)=f
+        td
+          if f ==='hocdan' || f ==='laptrinh'
+            a(href='CRUD/'+f+'/'+f).btn.btn-sm.btn-danger.mr-2=f
+          else
+            a(href='/CRUD/manager/'+f+'/'+'giuaky').btn.btn-sm.btn-warning.mr-2 Giua ky
+            a(href='/CRUD/manager/'+f+'/'+'cuoiky').btn.btn-sm.btn-primary Cuoi ky
+  tr
+    td
+      a(href='#').btn.btn-sm.btn-primary Add new item
+

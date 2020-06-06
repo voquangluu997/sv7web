@@ -1,0 +1,87 @@
+
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+  link(rel='stylesheet', type='text/css', href='../../style.css')
+  script(src='https://kit.fontawesome.com/443ff89b73.js', crossorigin='anonymous')
+  script(src='https://unpkg.com/scrollreveal')
+  script(async='', defer='', src='https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2')
+  title sv7
+ 
+// start home section
+#home
+  // navigation
+  nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
+    a.navbar-brand(href='/')
+      img(src='../../images/logo2.jpg')
+      |  Sv 7 
+      .fb-like(data-href='https://www.facebook.com/SVNam7BKDN/', data-width='', data-layout='button_count', data-action='like', data-size='small', data-share='true')
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive')
+      span.navbar-toggler-icon
+    #navbarResponsive.collapse.navbar-collapse
+      ul.navbar-nav.ml-auto
+        li.nav-item
+          a.nav-link.active(href='#home') Home
+        li.nav-item
+          a.nav-link(href='/daicuong') &dstrok;&#x1EA1;i c&#x1B0;&#x1A1;ng
+        li.nav-item
+          a.nav-link(href='/chuyennganh')  chuyên ngành
+        li.nav-item
+          a.nav-link(href='/avnangluc') Av n&abreve;ng l&#x1EF1;c
+        li.nav-item
+          a.nav-link(href='/toeic') Toeic-Ielts
+        li.nav-item
+          a.nav-link(href='#hocdan') H&#x1ECD;c &dstrok;&agrave;n
+        li.nav-item
+          a.nav-link(href='#laptrinh') H&#x1ECD;c L&#x1EAD;p tr&igrave;nh
+        li.nav-item
+          a.nav-link(href='#contact') Contact
+
+-var num = 1
+if field
+  h2.header-list-img.alert.alert-danger.text-center=header
+.container
+  .row
+    if field
+      each f in field
+        .card.col-12.col-md-4.pt-5(style='width: 40rem;')
+          div
+            a(data-fancybox='gallery', href=f.url)
+              img.card-img-top(src=f.url,style='width: 300px; height :  500px;' ) 
+            .text-center
+              h5.pt-2.text-center='Đề ' + num++
+
+
+.col-12.container.d-flex.justify-content-center.margin-bottom-pagination
+  nav(aria-label='Page navigation')
+    ul.pagination
+      li.page-item
+        if page ==='1'
+          a.page-link(href='#') Previous
+        else 
+          a.page-link(href='/cc/'+sub + '/' +(Number(page)-1).toString()) Previous
+      li.page-item
+        a.page-link.active.bg-primary.text-light(href='/cc/'+sub + '/' +page)=page
+      li.page-item
+        a.page-link(href='#') of
+      li.page-item
+        a.page-link(href='/cc/'+sub + '/' +totalPage)=totalPage
+      li.page-item
+        if Number(page) === Number( totalPage )
+          a.page-link(href='#') Next
+        else
+          a.page-link(href='/cc/'+sub + '/' +(Number(page)+1).toString()) Next
+
+// script(src='https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js')
+script(src='https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js')
+link(rel='stylesheet', href='https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css')
+script(src='https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js')
+
+
+
+
+
+

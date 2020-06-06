@@ -1,0 +1,95 @@
+.col-12.narrow.text-center
+  .col-12.text-center
+    h3.heading  test nhân phẩm 😂😂😂
+    .heading-underline
+  #testnhanpham(align='center')
+    span.truyenthuyet Tương truyền rằng ở Bách khoa, chỉ cần một lần  bắt được chim xanh truyền thuyết thì sẽ không bao giờ rớt thêm môn nào nữa  
+    span.typeText |
+    #red.redBackground(onclick="redBtn()", style="position: absolute, left: 20%, top: 45%, tabindex= '-1' ")
+      p.text-nowrap chim đỏ
+      i.fab.fa-twitter.greenBird 
+    #green.greenBackground(onmouseover='greenBtn()', onclick='greenBtn2()',ondblclick = 'trueChoise()' style='position: absolute; right: 20%; top: 45%;', tabindex='-1')  
+      p#pGreen.text-nowrap Chim xanh
+      i.fab.fa-twitter.redBird
+      
+script.
+  var greenBtn = function(){
+  document.getElementById("pGreen").style.setProperty('color','#CB4335');
+  var rInteract = Math.floor(Math.random() * 101);
+  if(rInteract <= 60){
+  document.getElementById("pGreen").style.setProperty('color','silver');
+  move();
+  }else{
+  replace();
+  }
+  }
+
+  var noti='' ;
+  
+
+
+
+  var greenBtn2 = function(){
+  var rInteract = Math.floor(Math.random() * 101);
+  //if(rInteract<5) {
+  //- 	noti = 'Tuyệt vời!!Bạn được ông bà độ rồi, chỉ cần xách đít đi thi, không muốn A+ cũng có người nhét  A+ vào mồm bắt ăn';
+  //- }
+
+  //- noti = 'Thôi kì này hongg ai cứu nổi con con nữa đâu  ';
+  //- if(rInteract<20) {
+  //- 	noti = 'Báo động! Báo động!! Chỉ số nhân phẩm kém quá. về nhà nhớ mở youtube xem thầy Huấn rô xì để cải thiện điểm nhân phẩm nghe chưa ';
+  //- }
+  
+  //- if(rInteract<30) {
+  //- 	noti = 'Hè này nhớ đăng ký tăng cường môn đường lối để ánh sáng của Đảng soi sáng tâm hồn, níu kéo chút nhân phẩm còn lại nha hongg!! ';
+  //- }
+  
+  //- if(rInteract<40) {
+  //- 	noti = ' ';
+  //- }
+  
+  //- if(rInteract<5) {
+  //- 	trueChoise();
+  //- }
+  
+  if(rInteract<5) {
+  	trueChoise();
+  }
+  
+  if(rInteract <= 60){
+  move();
+  }else{
+  replace();
+  }
+  }
+
+  var replace = function(){
+  var greenBird_btn = document.getElementById("green");
+  var redBird_btn = document.getElementById("red");
+  var styles_redBird = window.getComputedStyle(redBird_btn);
+  var top_redBird = styles_redBird.getPropertyValue("top");
+  var left_redBird = styles_redBird.getPropertyValue("left");
+  var temp_top = top_redBird;
+  var temp_left = left_redBird;
+  var styles_greenBird = window.getComputedStyle(greenBird_btn);
+  var top_greenBird = styles_greenBird.getPropertyValue("top");
+  var left_greenBird = styles_greenBird.getPropertyValue("left");
+  redBird_btn.style.top = top_greenBird;
+  redBird_btn.style.left = left_greenBird;
+  greenBird_btn.style.top = temp_top;
+  greenBird_btn.style.left = temp_left;
+  }
+  var move = function(){
+  var greenBird_btn = document.getElementById("green");
+  var redBird_btn = document.getElementById("red");
+  greenBird_btn.style.top = Math.floor(Math.random() * 400);
+  greenBird_btn.style.left = Math.floor(Math.random() * 800);
+  }
+  var redBtn = function(){
+  alert(" Ngu ngok!! Con chim đỏ mới là con chim xanh chứ😭😭😭 ");
+  }
+
+  var trueChoise = function(){
+  alert(" 🤪 Wowww!! bạn thật có năng khiếu bắt chim ");
+  }
+

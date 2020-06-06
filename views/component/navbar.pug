@@ -1,0 +1,32 @@
+// start home section
+#home
+  // navigation
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+    a.navbar-brand(href='/')
+      img(src='../images/logo2.jpg')
+      |  Sv 7 
+      .fb-like(data-href='https://www.facebook.com/SVNam7BKDN/', data-width='', data-layout='button_count', data-action='like', data-size='small', data-share='true')
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive')
+      span.navbar-toggler-icon
+    #navbarResponsive.collapse.navbar-collapse
+      ul.navbar-nav.ml-auto
+        li.nav-item
+          a.nav-link.active(href='/') Home
+        li.nav-item
+          if header==='đề thi chuyên ngành'
+            a.nav-link(href='/daicuong') &Dstrok;&#x1EC1; thi &dstrok;&#x1EA1;i c&#x1B0;&#x1A1;ng
+          else
+            a.nav-link(href='/chuyennganh') đề thi chuyên ngành
+        li.nav-item
+          a.nav-link(href='/avnangluc') Av n&abreve;ng l&#x1EF1;c
+        li.nav-item
+          a.nav-link(href='/toeic') Toeic-Ielts
+        li.nav-item
+          a.nav-link(href='#hocdan') H&#x1ECD;c &dstrok;&agrave;n
+        li.nav-item
+          a.nav-link(href='#laptrinh') H&#x1ECD;c L&#x1EAD;p tr&igrave;nh
+        li.nav-item
+          a.nav-link(href='#contact') Contact
+  // end navigation
+// end home section
+// start courses section

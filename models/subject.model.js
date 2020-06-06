@@ -1,11 +1,11 @@
-// var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
-// var subjectSchema = new mongoose.Schema({
-// 	name: String,
-// 	url:  String,
-// 	page: String
-// });
+var subjectSchema = new mongoose.Schema({
+	_id: String,
+	name: String,
+	field: String
+});
 
-// var Subject = mongoose.model('Subject', subjectSchema, 'subjects');
+var Subject = mongoose.model('Subject', subjectSchema, 'subjects');
 
-// module.exports = Subject;
+module.exports = Subject;

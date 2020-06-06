@@ -1,0 +1,73 @@
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+  link(rel='stylesheet', type='text/css', href='../style.css')
+  script(src='https://kit.fontawesome.com/443ff89b73.js', crossorigin='anonymous')
+  script(src='https://unpkg.com/scrollreveal')
+  script(async='', defer='', src='https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2')
+ 
+  title sv7
+include ../component/navbar.pug
+#cources.offset
+  .fixed-background
+    .dark.text-center.row
+      .col-12
+        h3.heading profile
+        .heading-underline
+      .col-3
+      form(action ='/user/profile', method ='post',enctype="multipart/form-data").col-12.col-md-6
+        .avt.col-12.mb-5
+          .img-avt.d-flex.flex-column.align-items-center
+              
+              label.profile-image( for='file', style = "background-image: url(../uploads/" +userInfo.avatar +");" )
+
+              input( id ='file', type='file', name='avatar', style = 'visibility:hidden')
+              button.btn.btn-outline-light.btn-lg(type='button', disabled='') Profile picture
+
+
+
+        .form-group.row
+          label.col-3.col-md-2.col-form-label(for='inputName') Name
+          .col-sm-10
+            input#inputName.form-control.btn.btn-outline-light( type='text',  value=userInfo.name,style = 'color : #1ebba3; font-weight : bold; font-size : 1.5rem;' name = 'name')
+
+        .form-group.row
+          label.col-md-2.col-3.col-form-label(for='inputEmail3') Email
+          .col-sm-10
+            input#inputEmail3.btn.btn-outlight-light.form-control(type='email', value=userInfo.email, disabled="disabled",style = 'color : #1ebba3; font-weight : bold; font-size : 1.5rem;' name = 'email')
+
+        .form-group.row
+          label.col-md-2.col-3.col-form-label.text-nowrap(for='inputDonggop3') Đóng góp
+          .col-sm-10
+            input#inputDonggop3.btn.btn-outlight-light.form-control(type='text', value=userInfo.donggop, disabled="disabled",style = 'color : #1ebba3; font-weight : bold; font-size : 1.5rem;' name = 'donggop')
+        
+        fieldset.form-group
+          .row
+            legend.col-form-label.col-sm-2.pt-0 Gender
+            .col-sm-10.row
+              if userInfo.gender =='Male'
+                .form-check.col-6
+                  input#male.form-check-input(type='radio',style = 'font-size: 1.5rem;', name='gender', value='Male', checked='')
+                  label.form-check-label(for='male') Male
+                   
+                .form-check.col-6
+                  input#female.form-check-input(type='radio', name='gender', value='Female')
+                  label.form-check-label(for='female') Female
+              else
+                .form-check.col-6
+                  input#male.form-check-input(type='radio',style = 'font-size: 1.5rem;', name='gender', value='Male')
+                  label.form-check-label(for='male') Male
+                   
+                .form-check.col-6
+                  input#female.form-check-input(type='radio', name='gender', value='Female', checked = '')
+                  label.form-check-label(for='Female') Female
+        .form-group.row
+          .col-12.d-flex.justify-content-center 
+            input.btn.btn-outline-light.btn-lg(type='submit' , disable='',value = 'Update profile') 
+           
+
+script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')

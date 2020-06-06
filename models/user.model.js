@@ -17,11 +17,15 @@ var userSchema = new mongoose.Schema({
     required: true,
     min : 6,
     max : 1024
-  }
-  // created: {
-  //   type: Date,
-  //   default: Date.now
+  },
+  avatar : String,
+  gender: String,
+  donggop: Number,
+  admin : String,
+  // myList:{
+  //   type: Array,
   // }
+  
 });
 
 

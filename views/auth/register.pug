@@ -13,30 +13,40 @@ head
   .col-lg-4.col-10.content
     a.say-hi(href='/')
       img.logo(src='../images/logo.png')
-      h5  Chú sinh viên năm 7
-    h3.title  Register
+      h5  Chú sinh vên năm 7
+    h4.title  Register
     form.form(action="/register", method="POST")
       .form-group
         label(for='name') Full name
         input#email.form-control.mb-2(type='name', name="name")
         label(for='email') Email address
         input#email.form-control(type='email', name="email")
-        small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
-      .form-group
-        label(for='exampleInputPassword1') Password
-        input#exampleInputPassword1.form-control(type='password', name='password')
-      //- if error
-      //-   each err in error
-      //-     h5.alert.alert-danger=error
+        
+      .form-group.mt
+        label(for='password') Password
+        input#password.form-control(type='password', name='password')
+      fieldset.form-group
+          .row
+            legend.col-form-label.col-sm-2.pt-0 Gender
+            .col-sm-10.row
+             
+              .form-check.col-6
+                input#male.form-check-input(type='radio',style = 'font-size: 1.5rem;', name='gender', value='Male', checked='')
+                label.form-check-label(for='male') Male
+                   
+              .form-check.col-6
+                input#female.form-check-input(type='radio', name='gender', value='Female')
+                label.form-check-label(for='female') Female
 
+      include ../noti-component/err-noti.pug
       .form-group.form-check
       .forgot-password.d-flex
-        button.btn.btn-primary(type='submit') Register
+        button.btn.btn-sm.btn-primary(type='submit') Register
         a(href='/forgotPassword')  Quên mật khẩu?
-      button.btn.btn-block.btn-facebook.btn-social
+      a(href="auth/facebook").btn.btn-block.btn-facebook.btn-social
         i.fa.fa-facebook
         | Log in with Facebook
-      button.btn.btn-block.btn-google.btn-social.mt-3
+      a(href="auth/google").btn.btn-block.btn-google.btn-social.mt-3
         i.fa.fa-google
         | Log in with Google
       a.register.d-flex.mt-3(href='/login')

@@ -5,7 +5,8 @@ module.exports.registerValidation = function(data){
 const schema = {
 	name : Joi.string().required(),
 	email : Joi.string().min(6).required().email(),
-	password : Joi.string().min(6).required()
+	password : Joi.string().min(6).required(),
+	gender : Joi.string()
 	  };
 	return Joi.validate(data, schema);
 

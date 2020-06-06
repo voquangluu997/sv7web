@@ -1,59 +1,73 @@
 require('dotenv').config();
 var express = require('express');
 var app = express();
-var port =3000;
 app.set('view engine', 'pug');
 app.set('views', './views');
 app.use(express.static('public'));
 var bodyParse = require('body-parser');
+var auth = require('./middleware/auth.middleware');
+
+
+// var passport = require('passport');
+// var session = require('express-session');
+// const fs = require('fs');
+// const https = require('https');
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
-// var chuyennganhRoute = require('./routes/chuyennganh.route');
-// var avnanglucRoute = require('./routes/avnangluc.route');
-// var toeicRoute = require('./routes/toeic.route');
-// var hocdanRoute = require('./routes/hocdan.route');
-// var laptrinhRoute = require('./routes/laptrinh.route');
-var daicuongRoute = require('./routes/daicuong.route');
+// const key = fs.readFileSync('./config/certkey/privateKey.key');
+// const cert = fs.readFileSync('./config/certkey/certificate.crt');
+const PORT = process.env.PORT||9000;
+var dethiRoute = require('./routes/dethi.route');
+var baseRoute = require('./routes/base.route');
 // var userRoute = require('./routes/user.route');
 var authRoute = require('./routes/auth.route');
-// var authMiddleware = require('./middleware/auth/middleware');
+var CRUDRoute = require('./routes/CRUD.route');
+var userRoute = require('./routes/user.route');
 
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGO_URL,{ useNewUrlParser: true }).then(() => {
+const db = require('./config/keys').mongoURI;
+mongoose.connect(db,{ useFindAndModify: false,
+					  useNewUrlParser: true,
+					  useUnifiedTopology: true,
+
+					 }).then(() => {
         console.log('Connected to Mongo!');
     })
     .catch((err) => {
         console.error('Error connecting to Mongo', err)
     });
-app.get('/',function(req,res){
-	res.render('layouts/index');
-});
-app.use('/daicuong', daicuongRoute);
+mongoose.set('useCreateIndex', true);
+// app.get('/',function(req,res){
+// 	res.render('layouts/index');
+// });
+//middle wares facebook
+// require('./config/passport')(passport);
+// app.use(session({secret: 'process.env.SECRET_KEY',
+//  				resave:true,
+//  				saveUninitialized: true }));
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+// app.use('/daicuong', daicuongRoute);
+app.use('/',dethiRoute);
 // app.use('/', userRoute);
 app.use('/', authRoute);
-// app.use('/chuyennganh', chuyennganhRoute);
-// app.use('/avnangluc', avnanglucRoute);
-// app.use('/toeic', toeicRoute);
-// app.use('/hocdan', hocdanRoute);
-// app.use('/laptrinh', laptrinhRoute);
-// app.get('/users',function(req,res){
-// 	res.render('users/index',{
-// 		users:users
-// 	});
-// });
+app.use('/CRUD',auth.authAdmin,CRUDRoute);
+app.use('/',baseRoute);	
+app.use('/user',userRoute);	
 
 
-// app.get('/users/create',function(req,res){
-// 	res.render('users/create');
-// });
 
-// app.post('/users/create',function(req,res){
-// 	users.push(req.body);
-// 	res.redirect('/users');
-// })
+// var Server ;
+// if(process.env.NODE_ENV === 'developement'){
+// 	Server = https.createServer({key: key, cert : cert},app);
+// }else{
+// 	Server =app;
+// }
 
-app.listen(port,function(){
-	console.log('server listening on port '+ port);
+
+app.listen(PORT,function(){
+	console.log('server is run at ' + process.env.PORT +' mode on port '+ PORT);
 });
 

@@ -13,22 +13,17 @@
 }
 
 .say-hi{
-	margin: 1.5rem 0 1.2rem 0;
+	margin: .8rem 0 0 0;
 	display: flex;
 	align-items: center;
 	color: #555	;
-	margin-bottom: .2rem;
-}
-
-.say-hi h5{
-	/*font-size: 1.2rem;*/
-
 }
 
 .content{
 	background-color: #eee;
 	height: 100vh;
 	border-radius: 1rem;
+	
 }
 .forgot-password{
 	align-items: center;
@@ -73,3 +68,4 @@ margin-top: 1.3rem;
 	color: #777;
 	text-align: center;
 }
+

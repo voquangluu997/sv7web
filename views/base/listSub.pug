@@ -1,0 +1,47 @@
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+  link(rel='stylesheet', type='text/css', href='../style.css')
+  script(src='https://kit.fontawesome.com/443ff89b73.js', crossorigin='anonymous')
+  script(src='https://unpkg.com/scrollreveal')
+  script(async='', defer='', src='https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2')
+ 
+  title sv7
+  include ../component/avatar.pug
+  include ../component/navbar.pug
+  
+// end home section
+// start courses section
+#cources.offset
+  .fixed-background
+    .row.dark.text-center
+      .col-12
+        h3.heading=header
+        .heading-underline
+      .col-12.mb-5
+        form.search-form(action='/daicuong/search',method="GET")
+          input.search-input(type='text', name='q', placeholder='Nhập tên môn..')
+          button(type="submit" )
+            i.fas.fa-search
+
+      if message!=''
+        h3.col-12.text-center=message
+      table.table.container.col-12.col-md-8.text-center
+        each f in field
+          if field
+            tr
+              td.text-white.text-center=f.name.toUpperCase()
+
+              td
+                .d-flex.align-items-center.justify-content-center
+                  a(href='/gk/'+f.name).btn.btn-sm.btn-success.mr-2.text-nowrap Giữa kỳ
+                  a(href='/cc/'+f.name + '/1').btn.btn-sm.btn-danger.text-nowrap Cuối kỳ
+                  
+include ../component/footer.pug
+script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
+  
+

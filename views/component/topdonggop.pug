@@ -1,0 +1,54 @@
+#clients.offset
+  // start jumbotron
+  .jumbotron
+    .col-12.text-center
+      h3.heading  BK-HEROs RANK
+      .heading-underline
+    -var stt=2
+    .row
+      .col-md-6.col-12.top2-10
+        .row
+          if top1
+            each t in top1  
+              .col-4.col-lg-6.d-flex.justify-content-center.mt-3.top1
+                img(src='uploads/'+t.avatar)
+              .col-8.col-lg-6.d-flex.flex-column.justify-content-center.align-items-start.mt-3
+                  h5#top-name(style = 'color: #11bba3; font-size: 1.4rem;')='Supper Herro: ' + t.name
+                  h5='Số đề đã đóng góp: '+t.donggop 
+              
+                  .d-flex
+                    i.crown-top1.fas.fa-crown
+                    i.crown-top1.fas.fa-crown
+                    i.crown-top1.fas.fa-crown
+              .heading-underline-long
+
+          if top25
+            each t in top25  
+              .col-4.col-lg-6.d-flex.justify-content-center.mt-3
+                img(src='uploads/'+t.avatar)
+              .col-8.col-lg-6.d-flex.flex-column.justify-content-center.align-items-start.mt-3
+                  h5#top-name(style = 'color: #11bba3; font-size: 1.4rem;')='Hero ' + stt++ + ': ' + t.name
+                  h5='Số đề đã đóng góp: '+t.donggop 
+                    if stt == 3 || stt == 4
+                      if stt == 3
+                        .d-flex
+                          i.crown-top2.fas.fa-crown
+                          i.crown-top2.fas.fa-crown
+                      else
+                        .d-flex
+                          i.crown-top2.fas.fa-crown
+
+
+              if stt==3||stt==4
+                .heading-underline-long
+              
+      .col-md-6.col-12.top2-10
+        .row
+          if top610
+            each t2 in top610
+              .col-4.col-lg-6.d-flex.justify-content-center.mt-3
+                img(src='uploads/'+t2.avatar)
+              .col-8.col-lg-6.d-flex.flex-column.justify-content-center.align-items-start.mt-3
+                  h5#top-name(style = 'color: #11bba3; font-size: 1.4rem;')='Hero ' + stt++ + ': ' + t2.name
+                  h5='Số đề đã đóng góp: '+t2.donggop
+        

@@ -14,7 +14,9 @@ head
     a.say-hi(href='/')
       img.logo(src='../images/logo.png')
       h3  Chú sinh viên năm 7
-    h1.title  Login
+    h3.title  Login
+    if saygb
+      .small.alert.alert-success=saygb
     form.form(action="/login", method="POST")
       .form-group
         label(for='email') Email address
@@ -23,16 +25,19 @@ head
       .form-group
         label(for='password') Password
         input#password.form-control(type='password', name='password')
+      if noti
+        .small.alert.alert-danger=noti
       .form-group.form-check
       .forgot-password.d-flex
         button.btn.btn-primary(type='submit') Login
         a(href='/forgotpassword')  Quên mật khẩu?
-      button.btn.btn-block.btn-facebook.btn-social
+      a(href="/auth/facebook").btn.btn-block.btn-facebook.btn-social
         i.fa.fa-facebook
         | Log in with Facebook
-      button.btn.btn-block.btn-google.btn-social.mt-3
+      a(href="/auth/google").btn.btn-block.btn-google.btn-social.mt-3
         i.fa.fa-google
         | Log in with Google
       a.register.d-flex.mt-3(href='/register')
         | Đăng ký nếu chưa có tài khoản
   .col-lg-4.col-1
+

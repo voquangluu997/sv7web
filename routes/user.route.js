@@ -1,10 +1,31 @@
-// var express = require('express');
-// var router = express.Router(); 
+var express = require('express');
+var router = express.Router(); 
 
-// var controller = require("../controllers/user.controller");
-// //  router.get('/login',controller.login);	
-//  router.get('/register',controller.register);	
-//  router.post('/register', controller.postRegister);
-// //  router.get('/profile',controller.profile);	
+var multer  = require('multer');
+const multerConf = {
+	storage : multer.diskStorage({
+	destination: function(req,file,cb){
+		cb(null,'./public/uploads');
+	},
+	filename: function(req,file,cb){	
+		const ext = file.mimetype.split('/')[1];
+		 cb(null, file.fieldname + '-' + Date.now() + '.' + ext);
+		}
+	}),
+	fileFilter : function(req,file,cb){
+		if(!file){
+			cb();
+		}
+		const image = file.mimetype.startsWith('image/');
+		if(image){
+			cb(null,true);
+		}else{
+			cb({ message : "file type not supported "}, false);
+		}
+	}
+};
 
-// module.exports = router;
+var controller = require("../controllers/user.controller");
+router.post('/profile',multer(multerConf).single('avatar'),controller.postProfile)
+ router.get('/profile',controller.profile);	
+module.exports = router;
