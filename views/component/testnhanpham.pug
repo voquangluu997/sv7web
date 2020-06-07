@@ -5,91 +5,57 @@
   #testnhanpham(align='center')
     span.truyenthuyet Tương truyền rằng ở Bách khoa, chỉ cần một lần  bắt được chim xanh truyền thuyết thì sẽ không bao giờ rớt thêm môn nào nữa  
     span.typeText |
-    #red.redBackground(onclick="redBtn()", style="position: absolute, left: 20%, top: 45%, tabindex= '-1' ")
-      p.text-nowrap chim đỏ
-      i.fab.fa-twitter.greenBird 
-    #green.greenBackground(onmouseover='greenBtn()', onclick='greenBtn2()',ondblclick = 'trueChoise()' style='position: absolute; right: 20%; top: 45%;', tabindex='-1')  
-      p#pGreen.text-nowrap Chim xanh
+
+  .main(align='center')
+    button.btn.btn-outlight-light#yes(onclick='YesBtn()', style='position: absolute; left: 20%; top: 45%,' tabindex='-1') Chim đỏ
+      i.fab.fa-twitter.greenBird
+
+    button.btn.btn-outlight-light#no(onmouseover='NoBtn()', onclick='NoBtn()', style='position: absolute; right: 20%; top: 45%;', tabindex='-1') Chim xanh
       i.fab.fa-twitter.redBird
-      
+
 script.
-  var greenBtn = function(){
-  document.getElementById("pGreen").style.setProperty('color','#CB4335');
+  var NoBtn = function(){
   var rInteract = Math.floor(Math.random() * 101);
+  if(rInteract ==1) trueChoise();
   if(rInteract <= 60){
-  document.getElementById("pGreen").style.setProperty('color','silver');
   move();
+  
   }else{
   replace();
   }
+  return rInteract;
   }
-
-  var noti='' ;
-  
-
-
-
-  var greenBtn2 = function(){
-  var rInteract = Math.floor(Math.random() * 101);
-  //if(rInteract<5) {
-  //- 	noti = 'Tuyệt vời!!Bạn được ông bà độ rồi, chỉ cần xách đít đi thi, không muốn A+ cũng có người nhét  A+ vào mồm bắt ăn';
-  //- }
-
-  //- noti = 'Thôi kì này hongg ai cứu nổi con con nữa đâu  ';
-  //- if(rInteract<20) {
-  //- 	noti = 'Báo động! Báo động!! Chỉ số nhân phẩm kém quá. về nhà nhớ mở youtube xem thầy Huấn rô xì để cải thiện điểm nhân phẩm nghe chưa ';
-  //- }
-  
-  //- if(rInteract<30) {
-  //- 	noti = 'Hè này nhớ đăng ký tăng cường môn đường lối để ánh sáng của Đảng soi sáng tâm hồn, níu kéo chút nhân phẩm còn lại nha hongg!! ';
-  //- }
-  
-  //- if(rInteract<40) {
-  //- 	noti = ' ';
-  //- }
-  
-  //- if(rInteract<5) {
-  //- 	trueChoise();
-  //- }
-  
-  if(rInteract<5) {
-  	trueChoise();
-  }
-  
-  if(rInteract <= 60){
-  move();
-  }else{
-  replace();
-  }
-  }
-
   var replace = function(){
-  var greenBird_btn = document.getElementById("green");
-  var redBird_btn = document.getElementById("red");
-  var styles_redBird = window.getComputedStyle(redBird_btn);
-  var top_redBird = styles_redBird.getPropertyValue("top");
-  var left_redBird = styles_redBird.getPropertyValue("left");
-  var temp_top = top_redBird;
-  var temp_left = left_redBird;
-  var styles_greenBird = window.getComputedStyle(greenBird_btn);
-  var top_greenBird = styles_greenBird.getPropertyValue("top");
-  var left_greenBird = styles_greenBird.getPropertyValue("left");
-  redBird_btn.style.top = top_greenBird;
-  redBird_btn.style.left = left_greenBird;
-  greenBird_btn.style.top = temp_top;
-  greenBird_btn.style.left = temp_left;
+  var no_btn = document.getElementById("no");
+  var yes_btn = document.getElementById("yes");
+  var styles_yes = window.getComputedStyle(yes_btn);
+  var top_yes = styles_yes.getPropertyValue("top");
+  var left_yes = styles_yes.getPropertyValue("left");
+  var temp_top = top_yes;
+  var temp_left = left_yes;
+  var styles_no = window.getComputedStyle(no_btn);
+  var top_no = styles_no.getPropertyValue("top");
+  var left_no = styles_no.getPropertyValue("left");
+  yes_btn.style.top = top_no;
+  yes_btn.style.left = left_no;
+  no_btn.style.top = temp_top;
+  no_btn.style.left = temp_left;
   }
   var move = function(){
-  var greenBird_btn = document.getElementById("green");
-  var redBird_btn = document.getElementById("red");
-  greenBird_btn.style.top = Math.floor(Math.random() * 400);
-  greenBird_btn.style.left = Math.floor(Math.random() * 800);
+  var no_btn = document.getElementById("no");
+  var yes_btn = document.getElementById("yes");
+  no_btn.style.top = Math.floor(Math.random() * 400);
+  no_btn.style.left = Math.floor(Math.random() * 800);
   }
-  var redBtn = function(){
-  alert(" Ngu ngok!! Con chim đỏ mới là con chim xanh chứ😭😭😭 ");
-  }
-
+  var YesBtn = function(){
+  Math.floor(Math.random() * 6)>2 ? alert( "Điểm nhân phẩm của bạn hiện tại là " + NoBtn()+  "/100!, Hôm nay đi thi auto see you next year 😁 ") : alert(" Ngu ngok!! tui hogg phải là con chim xanh hihi😁😁😁 ")  }
+  
   var trueChoise = function(){
-  alert(" 🤪 Wowww!! bạn thật có năng khiếu bắt chim ");
+  Math.floor(Math.random() * 6)>2 ?
+  alert(  " 🤪 Wowww!! bạn thật có năng khiếu bắt chim "):
+  alert(  " 🤪 Không bắt được là do nhân phẩm cả đấy hihi  ");
   }
+  
+
+
 

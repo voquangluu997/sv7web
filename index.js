@@ -24,6 +24,7 @@ var baseRoute = require('./routes/base.route');
 var authRoute = require('./routes/auth.route');
 var CRUDRoute = require('./routes/CRUD.route');
 var userRoute = require('./routes/user.route');
+var authorRoute = require(('./routes/author.route'));
 
 var mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
@@ -50,12 +51,13 @@ mongoose.set('useCreateIndex', true);
 // app.use(passport.session());
 
 // app.use('/daicuong', daicuongRoute);
-app.use('/',dethiRoute);
+app.use('/dethi',dethiRoute);
 // app.use('/', userRoute);
-app.use('/', authRoute);
+app.use('/auth', authRoute);
 app.use('/CRUD',auth.authAdmin,CRUDRoute);
 app.use('/',baseRoute);	
 app.use('/user',userRoute);	
+app.use('/author',authorRoute);	
 
 
 

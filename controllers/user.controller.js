@@ -4,22 +4,18 @@ var Upload = require('../models/upload.model');
 var middleware = require('../middleware/auth.middleware');
 var fs = require('fs');
 
-
 module.exports.profile = function(req,res){
-	
+
 	middleware.checkLoggedMiddleware().then( async function(userId){
-		var matched =await User.findOne({ _id : userId } ); 
-		res.render('users/profile',{
-		userInfo: matched
+		res.render('profile',{
+			userInfo : userId
+		});
 	});
 
-	});
-	
 }
 
 module.exports.postProfile = function(req,res){
-	middleware.checkLoggedMiddleware().then( async function(userId){		
-		var matched =await User.findOne({ _id : userId } ); 
+	middleware.checkLoggedMiddleware().then( async function(matched){		
 		var updateUser = matched;
 		if(req.file){
 			
@@ -33,9 +29,7 @@ module.exports.postProfile = function(req,res){
 						updateUser.name = matched.name;
 						
 					var saveUser = await updateUser.save();
-					res.render('users/profile',{
-						userInfo:updateUser
-					});
+					res.redirect('profile');
 			}
 			else {
 				updateUser.gender = req.body.gender;
@@ -45,9 +39,7 @@ module.exports.postProfile = function(req,res){
 						updateUser.name = matched.name;
 				updateUser.avatar = req.file.filename;
 				var saveUser = await updateUser.save();
-				res.render('users/profile',{
-					userInfo:updateUser
-				});
+				res.redirect('profile');
 			}
 		}
 		else{
@@ -57,12 +49,11 @@ module.exports.postProfile = function(req,res){
 				}else
 					updateUser.name = matched.name;
 					var saveUser = await updateUser.save();
-			res.render('users/profile',{
-				userInfo: matched			
-			});
-
+			res.redirect('profile');
 		}
 			
 	});
 
-}
+};
+
+

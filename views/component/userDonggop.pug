@@ -1,0 +1,35 @@
+#donggop.offset.container
+  // start jumbotron
+  .jumbotron
+    .col-12.text-center
+      h3.heading  KHU ĐÓNG GÓP ĐỀ THI CÁC THỂ LOẠI
+      .heading-underline
+    form(action ='/', method ='post',enctype="multipart/form-data").col-12
+      .avt.col-12.mb-5
+        .d-flex.flex-column.align-items-center
+          label.btn-dong-gop.btn.btn-primary( for='myFiles' ) Chọn Files tải lên 
+          input( id ='myFiles', type='file', name='myFiles',style ='visibility : hidden' ,multiple='')
+          //- input.btn.btn-outline-dark.btn-lg(type='submit', value ='Xác nhận tải lên ')  
+          button(type='button', data-toggle='modal', data-target='#uploadFiles').btn.btn-outline-dark.btn-lg Xác nhận tải lên 
+          //moldal
+          #uploadFiles.modal.fade(tabindex='-1', role='dialog', aria-labelledby='uploadFilesLabel', aria-hidden='true')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  h5#uploadFilesLabel.modal-title.text-info  Chú sinh viên năm 7
+                  button.close.btn-danger(type='button', data-dismiss='modal', aria-label='Close')
+                if !userInfo
+                  .modal-body.text-center
+                    p.text-success  Cám ơn bạn!!Đề sẽ được up lên sau quá trình kiểm duyệt
+                    p.text-secondary  Hãy đăng nhập để được vinh danh và nhận quà khi đóng góp đề thi cho mọi người bạn nhé 
+                  .modal-footer
+                    input.btn.btn-success(type='submit', value='OK')
+                else
+                  .modal-body.text-center
+                    p.text-success  Cám ơn bạn!!Đề sẽ được up lên sau quá trình kiểm duyệt
+                    p.text-secondary Tên của bạn sẽ sớm xuất hiện trong bảng vinh danh "BK-Heros rank "
+                  .modal-footer
+                    input.btn.btn-success(type='submit', value='Ok bạn ei')
+                
+                              
+    

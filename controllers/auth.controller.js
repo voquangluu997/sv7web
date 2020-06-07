@@ -32,6 +32,9 @@ module.exports.postRegister = async function(req,res){
 			avatar : (req.body.gender=='Male') ? 'default-male.jpg': 'default-female.jpg',
 			gender : 'female',
 			donggop:0,
+			rank : 0,
+			noti : ['Chào mừng thành viên mới!', 'Đóng góp đề thi để sớm có tên trên bảng vinh danh \"Heros rank \" nhé😘'],
+
 			// mylist:[],
 			});
 			user.password = await bcrypt.hashSync(req.body.password,saltRounds);

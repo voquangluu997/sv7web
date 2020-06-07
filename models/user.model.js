@@ -21,7 +21,9 @@ var userSchema = new mongoose.Schema({
   avatar : String,
   gender: String,
   donggop: Number,
+  noti: Array,
   admin : String,
+  rank: Number,
   // myList:{
   //   type: Array,
   // }

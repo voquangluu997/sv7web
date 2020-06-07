@@ -1,15 +1,33 @@
 if !userInfo
   .btn-fixed
-    //- a.btn.btn-warning.btn-sm.btn-course.mr-1.avatar-image(href='/mylist', target='_blank') My list
-    a.btn.btn-primary.btn-sm.btn-course(href='/login', target='_blank') Login/Register 
+    a.btn.btn-primary.btn-sm.btn-course(href='/login') Login/Register 
 else
-  .dropleft.btn-group.btn-fixed
-    button(style= "background-image : url(../uploads/" + userInfo.avatar + ");",data-toggle='dropdown',aria-haspopup="true", aria-expanded="false")#dropdownMenuButton.btn.btn-primary.dropdown-toggle.avatar-image
-    .dropdown-menu
-      h5.dropdown-item(style = 'color: #11bba3; font-weight:bold', )=userInfo.name
-      a.dropdown-item(href='/user/profile') Update avatar 
-      a.dropdown-item(href='user/profile') Profile
-      .dropdown-divider
-      a.dropdown-item(href='#') Change password
-      .dropdown-divider
-      a.dropdown-item(href='/logout') Log out
+  .btn-fixed.d-flex.align-items-center
+    .dropleft.btn-group
+      button(style= "background-image : url(../../images/notification.png",data-toggle='dropdown',aria-haspopup="true", aria-expanded="false")#dropdownMenuButton.btn.btn-outlight-light.dropdown-toggle.noti-image
+        if userInfo.noti.length < 7
+          small#num-noti.badge.badge-danger.new-noti(onclick = "seen()")=userInfo.noti.length
+        else
+          small#num-noti.badge.badge-danger.new-noti(onclick = "seen()") 7+
+      .dropdown-menu#hihi
+        h5.dropdown-item(style = 'color: #11bba3; font-weight:bold', ) Thông báo
+        div(data-spy="scroll", data-target="#hihi", data-offset="0")
+          each noti in userInfo.noti
+            small.dropdown-item.text-success=noti 
+  
+    .dropleft.btn-group
+      button(style= "background-image : url(../../uploads/" + userInfo.avatar + ");",data-toggle='dropdown',aria-haspopup="true", aria-expanded="false")#dropdownMenuButton.btn.btn-primary.dropdown-toggle.avatar-image
+      .dropdown-menu
+        a.dropdown-item(style = 'color: #11bba3; font-size: 1.4rem; font-weight:bold',href='/user/profile' )=userInfo.name
+        .dropdown-divider
+        a.dropdown-item(href='user/profile') Upload Avatar
+        .dropdown-divider
+        a.dropdown-item(href='user/profile') Edit Profile
+        .dropdown-divider
+        a.dropdown-item(href='/logout') Log out
+        .dropdown-divider
+        a.dropdown-item(href='/author/support') Ủng hộ tác giả
+script.
+  function seen(){
+    document.getElementById('num-noti').innerHTML ='!';
+  }

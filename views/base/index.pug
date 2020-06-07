@@ -22,19 +22,19 @@ include ../component/navbar.pug
         .heading-underline
       .col-12.row
         .col-12.col-md-3
-          a.btn.btn-outline-light.btn-course.text-nowrap.btn-lg(href='/daicuong', target='_blank') Đề thi đại cương
+          a.btn.btn-outline-light.btn-course.text-nowrap.btn-lg(href='/daicuong') Đề thi đại cương
         .col-12.col-md-3
-          a.btn.btn-outline-light.btn-course.text-nowrap.btn-lg(href='/chuyennganh', target='_blank') Đề chuyên ngành
+          a.btn.btn-outline-light.btn-course.text-nowrap.btn-lg(href='/chuyennganh') Đề chuyên ngành
         .col-12.col-md-3
-          a.btn.btn-outline-light.btn-course.text-nowrap.btn-lg(href='/anhvan', target='_blank')  A.Văn năng lực
+          a.btn.btn-outline-light.btn-course.text-nowrap.btn-lg(href='/avnl')  A.Văn năng lực
         .col-12.col-md-3
-          a.btn.btn-outline-light.btn-course.text-nowrap.btn-lg(href='/toeic', target='_blank')  Toeic Ielts Free 
+          a.btn.btn-outline-light.btn-course.text-nowrap.btn-lg(href='/toeic')  Toeic Ielts Free 
       .more-list.col-12.row
         .col-lg-6.col-12.pt-5
           .card.mb-lg-5(style='max-width: 540px;')
             .row.no-gutters
               .col-4
-                a(href='/hocdan', target='_blank')
+                a(href='/hocdan')
                   img.card-img(src='images/guitar.jpg', alt='')
               .col-8
                 .card-body
@@ -46,7 +46,7 @@ include ../component/navbar.pug
           .card.mb-lg-5(style='max-width: 540px;')
             .row.no-gutters
               .col-4
-                a(href='/laptrinh', target='_blank')
+                a(href='/laptrinh')
                   img.card-img(src='images/it.jpg')
               .col-8
                 .card-body
@@ -59,20 +59,16 @@ include ../component/navbar.pug
   // end fixed background
 // end cources section
 // start clients section
-include ../component/topdonggop.pug
-        
+include ../component/top-rank.pug       
 // end row
 // end jumbotron
 // end clients
 // start tips section
 
 include ../component/testnhanpham.pug
-//-   .row.text-center
-//-     .col-md-6
-//-       | video2
-//-     .col-md-6
-//-       | video1
+
 // end tips section
+include ../component/userDonggop.pug
 include ../component/footer.pug
 script.
   window.sr = ScrollReveal();

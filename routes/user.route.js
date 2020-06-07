@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router(); 
 
 var multer  = require('multer');
+var controller = require("../controllers/user.controller");
 const multerConf = {
 	storage : multer.diskStorage({
 	destination: function(req,file,cb){
@@ -25,7 +26,8 @@ const multerConf = {
 	}
 };
 
-var controller = require("../controllers/user.controller");
 router.post('/profile',multer(multerConf).single('avatar'),controller.postProfile)
- router.get('/profile',controller.profile);	
+router.get('/profile',controller.profile);	
+
+
 module.exports = router;

@@ -7,7 +7,7 @@ module.exports.search = function(req,res){
 	 		var matched = item.filter(function(dc){
 			return dc.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;	
 			});
-			res.render('daicuong',{
+			res.render('/dethi',{
 			item:matched
 			});
 	 	});

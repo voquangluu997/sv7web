@@ -1,7 +1,8 @@
 var Item = require('../models/item.model');
 var Subject = require('../models/subject.model');
+var User = require('../models/user.model');
 module.exports.CRUD = function(req,res){
-	var field = ['daicuong', 'chuyennganh', 'AVNL', 'TOEIC', 'hocdan', 'laptrinh'];
+	var field = ['daicuong', 'chuyennganh', 'avnl', 'toeic', 'hocdan', 'laptrinh'];
 	res.render('CRUD/CRUD',{
 		field: field
 	});
@@ -9,7 +10,7 @@ module.exports.CRUD = function(req,res){
 
 module.exports.manager = function(req, res){
 	Item.find({field: req.params.field, type: req.params.type }).then(function(item){
-		res.render('CRUD/manager',{
+		res.render('CRUD/CRUD subject/manager',{
 			item : item,
 			lastPart: req.params.field + '/' + req.params.type
 		});	
@@ -28,7 +29,7 @@ module.exports.search= function(req,res){
 			message = 'Opps! Không tìm thấy rồi.. bạn thử nhập lại nhé!';
 			matched = item;
 		}
-		res.render('CRUD/manager',{
+		res.render('CRUD/CRUD subject/manager',{
 			item:matched,
 			message : message
 		});
@@ -36,7 +37,7 @@ module.exports.search= function(req,res){
 };
 
 module.exports.insert= function(req, res){
-	res.render('CRUD/insert');
+	res.render('CRUD/CRUD subject/insert');
 };
 
 module.exports.postInsert= function(req, res){
@@ -53,7 +54,7 @@ module.exports.edit = async function(req, res){
 			return i._id==q._id;	
 			});
 			
-			res.render('CRUD/edit',{
+			res.render('CRUD/CRUD subject/edit',{
 			item:matched
 			});
 	 	});
@@ -123,7 +124,7 @@ module.exports.delete = function(req,res){
 
 module.exports.managerField = function(req,res){
 	Subject.find({field: req.params.field }).then(function(doc){
-		res.render('CRUD/managerField',{
+		res.render('CRUD/CRUD subject/managerField',{
 			item : doc,
 			lastPart: req.params.field 
 		});	
@@ -132,7 +133,7 @@ module.exports.managerField = function(req,res){
 };
 
 module.exports.insertField = function(req,res){
-	res.render('CRUD/insertField');
+	res.render('CRUD/CRUD subject/insertField');
 };
 
 
@@ -163,7 +164,7 @@ module.exports.searchField= function(req,res){
 			message = 'Opps! Không tìm thấy rồi.. bạn thử nhập lại nhé!';
 			matched = item;
 		}
-		res.render('CRUD/managerField',{
+		res.render('CRUD/CRUD subject/managerField',{
 			item : matched,
 			message : message
 		});
@@ -172,7 +173,42 @@ module.exports.searchField= function(req,res){
 
 module.exports.deleteField = function(req,res){
 	Subject.findOneAndDelete({_id : req.params._id}).then(function(doc){
-		res.redirect('/CRUD/deleteField'+doc._id);
+		res.redirect('/CRUD/deleteField/'+doc._id);
 	});
 };
 
+
+/user CRUD controller -------------------------------------------------------/ 
+
+
+module.exports.user = async function(req,res){
+
+	var userList =await User.find() ;
+
+	res.render('CRUD/CRUD user/CRUDuser',{
+		item: userList
+	});
+}
+
+
+module.exports.userSearch= function(req,res){
+	var q = req.query.q ;
+	var message='';
+
+	User.find({ }).then(function(item){
+		var matched = item.filter(function(i){
+			return (i.name.toLowerCase().indexOf(q.toLowerCase())!== -1)
+			|| (i._id == q)
+			|| (i.email.toLowerCase().indexOf(q.toLowerCase())!== -1);
+
+		});
+		if(matched.length==0){
+			message = 'Opps! Không tìm thấy rồi.. bạn thử nhập lại nhé!';
+			matched = item;
+		}
+		res.render('CRUD/CRUD user/CRUDuser',{
+			item:matched,
+			message : message
+		});
+	});
+};

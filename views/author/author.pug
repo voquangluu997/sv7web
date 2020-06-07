@@ -1,0 +1,67 @@
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+  link(rel='stylesheet', type='text/css', href='../style.css')
+  script(src='https://kit.fontawesome.com/443ff89b73.js', crossorigin='anonymous')
+  script(src='https://unpkg.com/scrollreveal')
+  script(async='', defer='', src='https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2')
+  
+ 
+  title sv7
+include ../component/navbar.pug
+#cources.offset
+  .fixed-background
+    .dark.text-center.row.d-flex
+      .col-12
+        h3.heading Ủng hộ tác giả
+        .heading-underline
+      .col-12.d-flex.justify-content-center
+        .col-2
+        .form-group.row
+          label.col-3.col-form-label.text-nowrap(for='inputName',style = 'font-weight:bold; font-size :1.2rem;') Tài khoản MOMO
+          .col-sm-10
+            input#inputName.form-control.btn.btn-outlight-light( type='text',  value='033 5963 824',style = 'color : #1ebba3; font-weight : bold; font-size : 1.5rem;' name = 'name',disabled = '')
+
+          .form-group.row.mt-5
+          label.col-3.col-form-label.text-nowrap(for='inputName',style = 'font-weight:bold; font-size :1.2rem;') Tài khoản NH Đông Á
+          .col-sm-10
+            input#inputName2.form-control.btn.btn-outlight-light( type='text',  value='0110053208',style = 'color : #1ebba3; font-weight : bold; font-size : 1.5rem;' name = 'name',disabled = '')
+      
+      .col-12.d-flex.justify-content-center
+        .col-2
+        .container.col-md-5.group-support
+          button(type='button', data-toggle='modal', data-target='#supportModal').btn.btn-outline-light.mt-5.btn-lg.col-10 Em nghèo lắm, ủng hộ tinh thần thôi 😂
+          input#count.btn.btn-danger.btn-sm.col-2( type='button',value = support ,disabled='')
+          #supportModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='supportModalLabel', aria-hidden='true')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  h5#supportModalLabel.modal-title.text-info  Chú sinh viên năm 7
+                  button.close.btn-danger(type='button', data-dismiss='modal', aria-label='Close')
+                .modal-body
+                  p.text-secondary Cám ơn bạn đã ủng hộ😍, chúc bạn qua hết các môn an toàn
+                .modal-footer
+                  a.btn.btn-success(href ='/author/support/support') OK
+
+      .col-12.d-flex.justify-content-center
+        .col-2
+        .container.col-md-5.group-support
+          button(type='button', data-toggle='modal', data-target='#unsupportModal').btn.btn-outline-light.mt-5.btn-lg.col-10 Dẹp đêêê! web như shi* 🖕
+          input#count.btn.btn-danger.btn-sm.col-2( type='button',value = unsupport ,disabled='')
+          #unsupportModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='unsupportModalLabel', aria-hidden='true')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  h5#unsupportModalLabel.modal-title.text-info  Chú sinh viên năm 7
+                  button.close.text-danger(type='button', data-dismiss='modal', aria-label='Close')
+                .modal-body
+                  p.text-secondary Nếu thấy chỗ nào còn thiếu xót hãy góp ý để mình điều chỉnh nhé 
+                .modal-footer
+                  a.btn.btn-success(href ='/author/support/unsupport') OK
+
+include ../component/footer.pug
+script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
