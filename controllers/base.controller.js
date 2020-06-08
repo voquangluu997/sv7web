@@ -3,21 +3,41 @@ var middleware = require('../middleware/auth.middleware');
 var User = require('../models/user.model');
 var Course = require('../models/course.model');
 module.exports.home = async function(req,res){
+	var matched =await User.find().sort({donggop:-1});
 	var top1 = await User.find().sort({donggop: -1}).limit(1);
 	var top25 = await User.find().sort({donggop: -1}).skip(1).limit(4);
 	var top610 = await User.find().sort({donggop: -1}).skip(5).limit(5);
-	
-	middleware.checkLoggedMiddleware().then(function(status){
-		status.noti = status.noti.slice(0,7);
-		res.render('base/index',{
-			userInfo: status,
+	middleware.checkLoggedMiddleware().then(async function(status){
+		console.log(status);
+		if(!status){
+			res.render('base/index',{
 			top1 : top1,
 			top25 : top25,
 			top610 : top610,
-		});
+			});
+		}
+		else{
+			
+			var i;
+        	for(i=0;i<matched.length;i++){
+	           if(status._id.toString() == (matched[i]._id).toString()){
+	             status.rank = i+1;
+	             var userUpdate = await status.save();
+	             break;
+	           }
+         	}
+			status.noti = status.noti.slice(0,7);
+			res.render('base/index',{
+			userInfo: userUpdate,
+			top1 : top1,
+			top25 : top25,
+			top610 : top610,
+			});
+		}
+		
 	});
-};
-
+};                            
+ 
 module.exports.field =  function(req,res){
 	var header = '';
 	if(req.params.field == 'daicuong')

@@ -60,17 +60,22 @@ module.exports.login =  function(req,res){
 module.exports.postLogin = async function(req, res){
 
 	const { error } = loginValidation(req.body);
-	if(error) res.render('auth/login', { noti : error.details[0].message})
+	if(error) res.render('auth/login', { noti : error.details[0].message});
+	else{
+		const user = await User.findOne({email: req.body.email});
+		if(!user) res.render('auth/login', { noti : 'Email is not found.'});
+		else{
+			const validPass = await bcrypt.compare(req.body.password,user.password);
+			if(!validPass) res.render('auth/login', { noti : 'Invalid Password'});
+			else{
+				const token = jwt.sign({ _id:user._id }, process.env.SECRET_KEY );
+				localStorage.setItem('auth-token',token);
+				res.redirect('/');
+			}
+		}
 
-	const user = await User.findOne({email: req.body.email});
-	if(!user) res.render('auth/login', { noti : 'Email is not found.'});
-
-	const validPass = await bcrypt.compare(req.body.password,user.password);
-	if(!validPass) res.render('auth/login', { noti : 'Invalid Password'});
-
-	const token = jwt.sign({ _id:user._id }, process.env.SECRET_KEY );
-	localStorage.setItem('auth-token',token);
-	res.redirect('/'); 
+	}
+ 
 }
 
 module.exports.logout =  function(req,res){

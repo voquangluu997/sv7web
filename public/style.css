@@ -26,6 +26,11 @@ body {
 .noti-fixed {
 	right: 6.2rem;
 }
+
+.rank-fixed{
+	top:8rem;
+	font-weight: bold;
+}
 .navbar{
 	text-transform: uppercase;
 	font-weight: 700;
@@ -168,7 +173,16 @@ h3.heading {
 	height: 80px;
 }
 
-.top1 img{
+
+.top2-10 img{
+	animation-name: border_pinky;
+		animation-duration: 4s;
+		animation-iteration-count: infinite; 
+		animation-timing-function: linear;
+		border:.2rem solid #F1948A;
+}
+
+.top1 img {
 	width: 150px;
 	height: 150px;
 	border: .25rem solid #ffef66;
@@ -177,6 +191,19 @@ h3.heading {
 		animation-iteration-count: infinite; 
 		animation-timing-function: linear;
 
+}
+
+@keyframes border_pinky{
+	0%{ border-color:  #e9ecef; }
+	12.5% { border-color: #F1948A;}
+	25%{ border-color:  #e9ecef; }
+	37.5% { border-color:  #F1948A;}
+	50%{ border-color:  #e9ecef; }
+	67.5% { border-color: #F1948A;}
+	75%{ border-color:  #e9ecef; }
+	87.5% { border-color:  #F1948A;}
+	100%{ border-color:  #e9ecef; }
+	
 }
 
 @keyframes border_gold{
@@ -191,7 +218,6 @@ h3.heading {
 	100%{ border-color:  #e9ecef; }
 	
 }
-
 .text-top #top-name{
 	color : #11bba3;
 	font-size: 1.4rem;
@@ -201,6 +227,21 @@ h3.heading {
 	color : #11bba3;
 	font-size: 1.6rem;
 }
+
+.title-top-name{
+	color: #11bba3;
+	font-size: 1.4rem;
+	font-weight: bold;
+}
+.title-top{
+	color: #F1948A;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+.title-top-name:hover{
+	color: #F1948A;
+}
+
 
 .crown-top1{
 	font-size: 3.2rem;
@@ -359,17 +400,14 @@ background: linear-gradient(143deg, rgba(22,204,238,1) 0%, rgba(20,162,185,1) 21
 	border-radius: 50%;
 	border: none;
 }
-/*
-.avatar-noti{
-	background-image: url(images/logo2.jpg);
-	 width:1.2rem;
-	 height: 1.2rem;
-	 background-position: center;
-	 background-repeat: no-repeat;
-	 background-size: cover;
-	 border-radius:50%; 
 
-}*/
+/*profile other ----------------------------------*/
+
+.profileOtherAvatar{
+	width: 15rem;
+	height: 15rem;
+	border-radius: 50%;
+}
 
 .new-noti{
 	margin-left: 5px;
@@ -594,6 +632,13 @@ h3.heading {
 	font-size: 1rem;
 }
 
+.title-top{
+	font-size: 1rem;
+}
+.title-top-name{
+	font-size: 1.2rem;
+}
+
 .crown-top1{
 	font-size: 1.8rem;
 	
@@ -617,5 +662,13 @@ h3.heading {
 	font-size: .5rem;
 
 }
+
+.rank-fixed{
+	top:5rem;
+	left:1rem;
+	
+	font-size: .7rem;
+}
+
 
 }

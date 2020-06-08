@@ -5,39 +5,51 @@ head
   meta(name='viewport', content='width=device-width, initial-scale=1')
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
   link(rel='stylesheet', type='text/css', href='../user.css')
+  link(rel='stylesheet', type='text/css', href='../style.css')
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
   script(src='https://kit.fontawesome.com/443ff89b73.js', crossorigin='anonymous')
   link(rel='icon', href='images/logo2.jpg')
-.col-12.row
-  .col-lg-4.col-1
-  .col-lg-4.col-10.content
-    a.say-hi(href='/')
-      img.logo(src='../images/logo.png')
-      h3  Chú sinh viên năm 7
-    h3.title  Login
-    if saygb
-      .small.alert.alert-success=saygb
-    form.form(action="/login", method="POST")
-      .form-group
-        label(for='email') Email address
-        input#email.form-control(type='email', name="email")
-        small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
-      .form-group
-        label(for='password') Password
-        input#password.form-control(type='password', name='password')
-      if noti
-        .small.alert.alert-danger=noti
-      .form-group.form-check
-      .forgot-password.d-flex
-        button.btn.btn-primary(type='submit') Login
-        a(href='/forgotpassword')  Quên mật khẩu?
-      a(href="/auth/facebook").btn.btn-block.btn-facebook.btn-social
-        i.fa.fa-facebook
-        | Log in with Facebook
-      a(href="/auth/google").btn.btn-block.btn-google.btn-social.mt-3
-        i.fa.fa-google
-        | Log in with Google
-      a.register.d-flex.mt-3(href='/register')
-        | Đăng ký nếu chưa có tài khoản
-  .col-lg-4.col-1
+include ../component/navbar.pug
+#cources.offset
+  .fixed-background
+    .dark.text-center.row.d-flex.justify-content-center
+      .col-12
+        h3.heading Đăng nhập
+        .heading-underline
+      .col-12.d-flex.justify-content-center
+        //- .col-2//
+        form.form.col-12.col-md-6(action="/auth/login", method="POST")
+          if saygb
+            .col-sm-12
+              .p.alert.alert-warning.m-0.new-noti=saygb
+          .form-group.row
+            label.col-3.col-form-label.text-nowrap(for='email',style = 'font-weight:bold; font-size :1.2rem;' ) Email
+            .col-sm-12
+              input#email.form-control.btn.btn-outline-light( type='email',  value='@gmail.com',style = 'color : #1ebba3; font-weight : bold; font-size : 1rem;' name = 'email')
+              small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
+
+          .form-group.row
+            label#password.col-3.col-form-label.text-nowrap(for='inputName',style = 'font-weight:bold; font-size :1.2rem;') Password
+            .col-sm-12
+              input#password.form-control.btn.btn-outline-light( type='password',style = 'color : #1ebba3; font-weight : bold; font-size : 1rem;' name = 'password')
+          .col-sm-12
+            include ../component/err-noti.pug
+          //- .form-group.form-check
+          .d-flex.align-items-center.col-5
+            button.btn.btn-light.btn-md.text-nowrap.mt-3(type='submit',style = 'margin-right: 80px') Log in
+            //- a(href='/auth/forgotpassword')  Forgot password?
+          .col-sm-12.mt-2
+            a(href="/auth/facebook").disabled.btn.btn-block.btn-facebook.btn-social
+              i.fa.fa-facebook
+              | Log in with Facebook
+          .col-sm-12.mt-2
+            a(href="/auth/google").disabled.btn.btn-block.btn-google.btn-social.mt-3
+              i.fa.fa-google
+              | Log in with Google
+          a.register.d-flex.mt-3.alert-link.text-light(href='/auth/register', role='alert' disabled='')
+            | Đăng ký nếu chưa có tài khoản
+        
+
+
+
 

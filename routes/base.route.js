@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router(); 
 var controller = require("../controllers/base.controller");
 var multer  = require('multer');
+var authMiddleware = require('../middleware/auth.middleware.js');
 
 const multerConfMany = {
 	storage : multer.diskStorage({
@@ -34,6 +35,6 @@ router.get('/:field', controller.field);
 
 router.get('/:field/search', controller.fieldSearch);
 
-router.get('/course/:skill', controller.course);
-router.get('/course/:skill/search', controller.courseSearch);
+router.get('/course/:skill',authMiddleware.authMiddleware, controller.course);
+router.get('/course/:skill/search',authMiddleware.authMiddleware, controller.courseSearch);
 module.exports = router;

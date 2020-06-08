@@ -7,9 +7,12 @@ var fs = require('fs');
 module.exports.profile = function(req,res){
 
 	middleware.checkLoggedMiddleware().then( async function(userId){
-		res.render('profile',{
+		console.log(userId);
+		
+			res.render('users/profile',{
 			userInfo : userId
-		});
+			});
+		
 	});
 
 }
@@ -56,4 +59,11 @@ module.exports.postProfile = function(req,res){
 
 };
 
+module.exports.seeProfile = async function(req,res){
+	var matched = await User.findOne({_id: req.params._id});
+
+		res.render('users/profileOther',{
+		userInfo: matched
+		});
+}
 

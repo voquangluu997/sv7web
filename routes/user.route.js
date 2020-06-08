@@ -28,6 +28,7 @@ const multerConf = {
 
 router.post('/profile',multer(multerConf).single('avatar'),controller.postProfile)
 router.get('/profile',controller.profile);	
+router.get('/profile/:_id',controller.seeProfile);	
 
 
 module.exports = router;

@@ -7,7 +7,7 @@
     form(action ='/', method ='post',enctype="multipart/form-data").col-12
       .avt.col-12.mb-5
         .d-flex.flex-column.align-items-center
-          label.btn-dong-gop.btn.btn-primary( for='myFiles' ) Chọn Files tải lên 
+          label.btn-dong-gop.btn.btn-danger( for='myFiles' ) Chọn Files tải lên 
           input( id ='myFiles', type='file', name='myFiles',style ='visibility : hidden' ,multiple='')
           //- input.btn.btn-outline-dark.btn-lg(type='submit', value ='Xác nhận tải lên ')  
           button(type='button', data-toggle='modal', data-target='#uploadFiles').btn.btn-outline-dark.btn-lg Xác nhận tải lên 
@@ -30,6 +30,5 @@
                     p.text-secondary Tên của bạn sẽ sớm xuất hiện trong bảng vinh danh "BK-Heros rank "
                   .modal-footer
                     input.btn.btn-success(type='submit', value='Ok bạn ei')
-                
-                              
-    
+          
+          h5.text-dark(style="font-weight: bold").mt-5 Tải 1 lúc 20 ảnh trở lại thôi các bạn nhé
