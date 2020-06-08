@@ -12,8 +12,6 @@ module.exports.author = async function(req,res){
 
 module.exports.support = async function(req,res){
 	Support.findOne().then(async function(doc){
-		console.log(doc.support);
-		console.log(doc.unsupport);
 
 		req.params.sp == 'support' ? doc.support++ : doc.unsupport++;
 		var saveClick =await doc.save();

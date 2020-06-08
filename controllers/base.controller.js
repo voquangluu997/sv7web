@@ -8,7 +8,7 @@ module.exports.home = async function(req,res){
 	var top25 = await User.find().sort({donggop: -1}).skip(1).limit(4);
 	var top610 = await User.find().sort({donggop: -1}).skip(5).limit(5);
 	middleware.checkLoggedMiddleware().then(async function(status){
-		console.log(status);
+	
 		if(!status){
 			res.render('base/index',{
 			top1 : top1,

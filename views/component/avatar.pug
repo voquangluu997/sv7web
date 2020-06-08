@@ -1,7 +1,8 @@
 if !userInfo 
-  #avatarbtn-fixed
+  #avatar.btn-fixed
     a.btn.btn-primary.btn-sm.btn-course(href='/auth/login') Login/Register 
 else
+
     .btn-fixed.d-flex.align-items-center
       .dropleft.btn-group
         button(style= "background-image : url(../../images/notification.png",data-toggle='dropdown',aria-haspopup="true", aria-expanded="false")#dropdownMenuButton.btn.btn-outlight-light.dropdown-toggle.noti-image
@@ -14,7 +15,7 @@ else
           div(data-spy="scroll", data-target="#hihi", data-offset="0")
             each noti in userInfo.noti
               small.dropdown-item.text-success=noti 
-    
+
       .dropleft.btn-group
         button(style= "background-image : url(../../uploads/" + userInfo.avatar + ");",data-toggle='dropdown',aria-haspopup="true", aria-expanded="false")#dropdownMenuButton.btn.btn-primary.dropdown-toggle.avatar-image
         .dropdown-menu
@@ -23,6 +24,9 @@ else
           a.dropdown-item(href='/user/profile') Upload Avatar
           .dropdown-divider
           a.dropdown-item(href='/user/profile') Edit Profile
+          .dropdown-divider
+          h6.dropdown-item='Điểm hero: '+userInfo.donggop
+          .dropdown-divider
           .dropdown-divider
           a.dropdown-item(href='/auth/logout') Log out
           .dropdown-divider

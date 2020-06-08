@@ -2,7 +2,7 @@
   // start jumbotron
   .jumbotron
     .col-12.text-center
-      h3.heading  BK-HEROs RANK
+      h3.heading  BK-HEROes RANK
       .heading-underline
     -var stt=2
     .row
@@ -29,7 +29,7 @@
                 a(data-fancybox='gallery', href="/uploads/"+t.avatar)
                   img(src='/uploads/'+t.avatar )
               .col-8.col-lg-6.d-flex.flex-column.justify-content-center.align-items-start.mt-3
-                  a(href='/user/profile/'+t._id)#top-name.title-top-name='Hero ' + stt++ + ': ' + t.name
+                  a(href='/user/profile/'+t._id)#top-name.title-top-name='HERO-SAN ' + stt++ + ': ' + t.name
                   h5.title-top='Số đề đã đóng góp: '+t.donggop 
                     if stt == 3 || stt == 4
                       if stt == 3
@@ -52,6 +52,6 @@
                 a(data-fancybox='gallery', href="/uploads/"+t2.avatar)
                   img(src='/uploads/'+t2.avatar )
               .col-8.col-lg-6.d-flex.flex-column.justify-content-center.align-items-start.mt-3
-                  a(href='/user/profile/'+t2._id)#top-name.title-top-name='Hero ' + stt++ + ': ' + t2.name
+                  a(href='/user/profile/'+t2._id)#top-name.title-top-name='HERO DỰ BỊ ' + stt++ + ': ' + t2.name
                   h5.title-top='Số đề đã đóng góp: '+t2.donggop
         
