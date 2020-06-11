@@ -19,8 +19,8 @@ body {
 /* -----------------------navigation------------------- */
 .btn-fixed, .noti-fixed{
 	position: absolute;
-	top: 4rem;
-	right: 1rem;	
+	top: 3.8rem;
+	right: .6rem;	
 }
 
 .noti-fixed {

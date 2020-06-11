@@ -1,10 +1,22 @@
-var mongoose = require('mongoose');
 
-var supportSchema = new mongoose.Schema({
-	support : Number,
-	unsupport: Number,
-});
+const  Sequelize = require('sequelize');
+const db = require('../database/db.js');
 
-var Support = mongoose.model('Support', supportSchema, 'count');
-
-module.exports = Support;
+module.exports = db.sequelize.define(
+	'count',
+	{
+		_id:{
+			type: Sequelize.STRING,
+			primaryKey: true
+		},
+		support:{
+			type: Sequelize.INTEGER
+		},
+		unsupport:{
+			type: Sequelize.INTEGER
+		},
+	},
+	{
+		timestamps: false
+	}
+	);

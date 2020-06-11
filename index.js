@@ -8,65 +8,37 @@ var bodyParse = require('body-parser');
 var auth = require('./middleware/auth.middleware');
 
 
-// var passport = require('passport');
-// var session = require('express-session');
-// const fs = require('fs');
-// const https = require('https');
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
-// const key = fs.readFileSync('./config/certkey/privateKey.key');
-// const cert = fs.readFileSync('./config/certkey/certificate.crt');
 const PORT = process.env.PORT||9000;
 var dethiRoute = require('./routes/dethi.route');
 var baseRoute = require('./routes/base.route');
-// var userRoute = require('./routes/user.route');
 var authRoute = require('./routes/auth.route');
-var CRUDRoute = require('./routes/CRUD.route');
+// var CRUDRoute = require('./routes/CRUD.route');
 var userRoute = require('./routes/user.route');
-var authorRoute = require(('./routes/author.route'));
+var authorRoute = require(('./routes/author.route'));	
 
-var mongoose = require('mongoose');
-const db = require('./config/keys').mongoURI;
-mongoose.connect(db,{ useFindAndModify: false,
-					  useNewUrlParser: true,
-					  useUnifiedTopology: true,
+var mysql = require('mysql2');
+var con = mysql.createConnection({
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: '',
+  database: process.env.MYSQL_DB
+});
 
-					 }).then(() => {
-        console.log('Connected to Mongo!');
-    })
-    .catch((err) => {
-        console.error('Error connecting to Mongo', err)
-    });
-mongoose.set('useCreateIndex', true);
-// app.get('/',function(req,res){
-// 	res.render('layouts/index');
-// });
-//middle wares facebook
-// require('./config/passport')(passport);
-// app.use(session({secret: 'process.env.SECRET_KEY',
-//  				resave:true,
-//  				saveUninitialized: true }));
-// app.use(passport.initialize());
-// app.use(passport.session());
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!!!")
+});
 
-// app.use('/daicuong', daicuongRoute);
+
 app.use('/dethi',dethiRoute);
-// app.use('/', userRoute);
 app.use('/auth', authRoute);
-app.use('/CRUD',auth.authAdmin,CRUDRoute);
+// app.use('/CRUD',auth.authAdmin,CRUDRoute);
 app.use('/',baseRoute);	
 app.use('/user',userRoute);	
 app.use('/author',authorRoute);	
-
-
-
-// var Server ;
-// if(process.env.NODE_ENV === 'developement'){
-// 	Server = https.createServer({key: key, cert : cert},app);
-// }else{
-// 	Server =app;
-// }
 
 
 app.listen(PORT,function(){

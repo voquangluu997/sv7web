@@ -1,18 +1,32 @@
-var mongoose = require('mongoose');
-// var autoIncrement = require('mongoose-auto-increment'); 
-var itemSchema = new mongoose.Schema({
-	_id:String,
-	name: String,
-	url:  String,
-	type: String,
-	field: String
-});
+const  Sequelize = require('sequelize');
+const db = require('../database/db.js');
 
-// autoIncrement.initialize(mongoose.connection); // 3. initialize autoIncrement 
+module.exports = db.sequelize.define(
+	'items',
+	{
 
-// itemSchema.plugin(autoIncrement.plugin, 'items'); // 4. use autoIncrement
+		_id:{
+			type: Sequelize.STRING,
+			primaryKey: true
+		},
+		name:{
+			type: Sequelize.STRING
+		},
+		url:{
+			type: Sequelize.STRING
+		},
+		type:{
+			type:Sequelize.STRING
+		},
+		field:{
+			type: Sequelize.STRING
+		}
+	},
+	{
+		timestamps: false
+	}
+	);
 
-var Item = mongoose.model('Item', itemSchema, 'items');
 
 
-module.exports = Item;
+

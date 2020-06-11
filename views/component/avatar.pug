@@ -1,19 +1,19 @@
 if !userInfo 
   #avatar.btn-fixed
-    a.btn.btn-primary.btn-sm.btn-course(href='/auth/login') Login/Register 
+    a.btn.btn-warning.btn-sm.btn-course(href='/auth/login') Login/Register 
 else
-
+    -var numNoti = userInfo.noti.split(',')
     .btn-fixed.d-flex.align-items-center
       .dropleft.btn-group
         button(style= "background-image : url(../../images/notification.png",data-toggle='dropdown',aria-haspopup="true", aria-expanded="false")#dropdownMenuButton.btn.btn-outlight-light.dropdown-toggle.noti-image
-          if userInfo.noti.length < 7
-            small#num-noti.badge.badge-danger.new-noti(onclick = "seen()")=userInfo.noti.length
+          if numNoti.length < 7
+            small#num-noti.badge.badge-danger.new-noti(onclick = "seen()")=numNoti.length
           else
             small#num-noti.badge.badge-danger.new-noti(onclick = "seen()") 7+
         .dropdown-menu#hihi
           h5.dropdown-item(style = 'color: #11bba3; font-weight:bold', ) Thông báo
           div(data-spy="scroll", data-target="#hihi", data-offset="0")
-            each noti in userInfo.noti
+            each noti in numNoti
               small.dropdown-item.text-success=noti 
 
       .dropleft.btn-group

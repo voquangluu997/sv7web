@@ -21,4 +21,4 @@ router.get('/user', controller.user);
 router.get('/user/search', controller.userSearch);
 
 
-module.exports = router;
+module.exports = router;	

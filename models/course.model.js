@@ -1,12 +1,25 @@
-var mongoose = require('mongoose');
+const  Sequelize = require('sequelize');
+const db = require('../database/db.js');
 
-var courseSchema = new mongoose.Schema({
-	_id: String,
-	name: String,
-	field: String,
-	url: String,
-});
+module.exports = db.sequelize.define(
+	'courses',
+	{
 
-var Course = mongoose.model('Course', courseSchema, 'course');
-
-module.exports = Course;
+		_id:{
+			type: Sequelize.STRING,
+			primaryKey: true
+		},
+		name:{
+			type: Sequelize.STRING
+		},
+		url:{
+			type: Sequelize.STRING
+		},
+		field:{
+			type: Sequelize.STRING
+		}
+	},
+	{
+		timestamps: false
+	}
+	);

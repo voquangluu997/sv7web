@@ -4,6 +4,7 @@ head
   meta(name='viewport', content='width=device-width, initial-scale=1')
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
   link(rel='stylesheet', type='text/css', href='../../style.css')
+  link(rel='icon', href='/images/logo2.jpg')
   script(src='https://kit.fontawesome.com/443ff89b73.js', crossorigin='anonymous')
   script(src='https://unpkg.com/scrollreveal')
   script(async='', defer='', src='https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2')
@@ -36,7 +37,7 @@ include ../component/navbar.pug
         .form-group.row
           label.col-md-2.col-3.col-form-label.text-nowrap(for='inputDonggop3') Hero rank
           .col-sm-10
-            input#inputDonggop3.btn.btn-outlight-light.form-control(type='text', value=userInfo.rank, disabled="disabled",style = 'color : #1ebba3; font-weight : bold; font-size : 1.5rem;' name = 'rank')
+            input#inputDonggop3.btn.btn-outlight-light.form-control(type='text', value='Rank '+userInfo.rank, disabled="disabled",style = 'color : #1ebba3; font-weight : bold; font-size : 1.5rem;' name = 'rank')
         
         fieldset.form-group
           .row

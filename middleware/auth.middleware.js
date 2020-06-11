@@ -27,10 +27,9 @@ module.exports.authMiddleware = async function(req,res,next){
 
 		}
 
-	} catch{ res.render('auth/login',{
-		saygb: 'KHU VỰC DÀNH CHO BKer, BẠN PHẢI ĐĂNG NHẬP ĐỂ TRUY CẬP!'
-			});
-	  }	
+	} catch(err){
+		throw err;
+	};
 }; 
 
 module.exports.authAdmin = async function(req,res,next){
@@ -56,7 +55,7 @@ module.exports.checkLoggedMiddleware = async  function(req,res){
   const token = localStorage.getItem('auth-token');
   if(!token) return null;
   var check = jwt.verify(token,process.env.SECRET_KEY)._id;
-  var content = await User.findOne({_id: check});
+  var content = await User.findOne({where : {_id: check}});
   return content;
 
 };

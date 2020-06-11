@@ -37,4 +37,6 @@ router.get('/:field/search', controller.fieldSearch);
 
 router.get('/course/:skill',authMiddleware.authMiddleware, controller.course);
 router.get('/course/:skill/search',authMiddleware.authMiddleware, controller.courseSearch);
+
+
 module.exports = router;

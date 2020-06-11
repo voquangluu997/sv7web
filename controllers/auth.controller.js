@@ -21,19 +21,20 @@ module.exports.postRegister = async function(req,res){
 	const { error } = registerValidation(req.body);
 	console.log(error + 'err');
 	if(error) res.render('auth/register',{ noti: error.details[0].message});
-	else{
-		const emailExist = await User.findOne({email: req.body.email});
+	
+		const emailExist = await User.findOne({where : {email: req.body.email}});
 		if(emailExist) res.render('auth/register',{ noti: 'Email already exists.'});
-		else{
+		
 			const user = new User({
+			_id: Date.now().toString(),
 			name: req.body.name,
 			email: req.body.email,
 			password: req.body.password,
-			avatar : (req.body.gender=='Male') ? 'default-male.jpg': 'default-female.jpg',
-			gender : 'female',
+			avatar : (req.body.gender=='Male') ? 'default-male.jpeg': 'default-female.jpeg',
+			gender : req.body.gender,
 			donggop:0,
-			rank : 0,
-			noti : ['Chào mừng thành viên mới!', 'Đóng góp đề thi để sớm có tên trên bảng vinh danh \"Heros rank \" nhé😘'],
+			rank : 999,
+			noti : 'Chào mừng thành viên mới!, '+ ' Đóng góp đề thi để sớm có tên trên bảng vinh danh \"Heros rank \" nhé!',
 
 			// mylist:[],
 			});
@@ -47,9 +48,9 @@ module.exports.postRegister = async function(req,res){
 				throw err;
 			}
 
-		}
 		
-	}
+		
+	
 	
 };
 
@@ -62,7 +63,7 @@ module.exports.postLogin = async function(req, res){
 	const { error } = loginValidation(req.body);
 	if(error) res.render('auth/login', { noti : error.details[0].message});
 	else{
-		const user = await User.findOne({email: req.body.email});
+		const user = await User.findOne( {where :{email: req.body.email} });
 		if(!user) res.render('auth/login', { noti : 'Email is not found.'});
 		else{
 			const validPass = await bcrypt.compare(req.body.password,user.password);

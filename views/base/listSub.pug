@@ -3,6 +3,8 @@ head
   meta(charset='utf-8')
   meta(name='viewport', content='width=device-width, initial-scale=1')
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+  link(rel='icon', href='/images/logo2.jpg')
+
   link(rel='stylesheet', type='text/css', href='../style.css')
   script(src='https://kit.fontawesome.com/443ff89b73.js', crossorigin='anonymous')
   script(src='https://unpkg.com/scrollreveal')
@@ -14,6 +16,10 @@ head
   
 // end home section
 // start courses section
+if type == 'avnl'
+  header= 'ĐỀ THI ANH VĂN NĂNG LỰC'
+if type == 'toeic'
+  header= 'ĐỀ THI TOEIC '
 #cources.offset
   .fixed-background
     .row.dark.text-center
@@ -32,12 +38,16 @@ head
         each l in list
           if list
             tr
-              td.text-white.text-center=l.name.toUpperCase()
+              td.text-white.text-center=l.dataValues.name.toUpperCase()
               td
                 .d-flex.align-items-center.justify-content-center
-                  a(href='/dethi/gk/'+l.name +'/1').btn.btn-sm.btn-success.mr-2.text-nowrap Giữa kỳ
-                  a(href='/dethi/cc/'+l.name + '/1').btn.btn-sm.btn-danger.text-nowrap Cuối kỳ
-                  
+                  if field=='daicuong' || field=='chuyennganh' 
+                    a(href='/dethi/giuaky/'+l.name +'/1').btn.btn-sm.btn-success.mr-2.text-nowrap Giữa kỳ
+                    a(href='/dethi/cuoiky/'+l.name + '/1').btn.btn-sm.btn-danger.text-nowrap Cuối kỳ
+                  else
+                    a(href='/dethi/'+field+'/'+l.name + '/1').btn.btn-sm.btn-danger.text-nowrap Xem full
+
+include ../component/userDonggop.pug                  
 include ../component/footer.pug
 script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
 script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')

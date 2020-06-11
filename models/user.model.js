@@ -1,36 +1,51 @@
-var mongoose = require('mongoose');
-var userSchema = new mongoose.Schema({
-	name: {
-    type: String,
+const  Sequelize = require('sequelize');
+const db = require('../database/db.js');
+
+module.exports = db.sequelize.define(
+  'users',
+  {
+
+    _id:{
+      type: Sequelize.INTEGER,
+      primaryKey: true
+    },
+    name:{
+      type: Sequelize.STRING
+
+    },
+    email:{
+      type: Sequelize.STRING
+    },
+    password:{
+      type: Sequelize.STRING
+    },
+    avatar:{
+      type: Sequelize.STRING
+    },
+    gender:{
+      type: Sequelize.STRING
+    },
+    donggop:{
+      type: Sequelize.INTEGER
+    },
+    noti: { 
+        type: Sequelize.STRING
+    },
+    admin:{
+      type: Sequelize.STRING
+    },
+    rank:{
+      type: Sequelize.INTEGER
+    },
   },
-  email: {
-    type: String,
-    unique: true,
-    lowercase: true,
-    trim: true,
-    required: true,
-    min : 4,
-    max:255
-  },
-  password: {
-    type: String,
-    required: true,
-    min : 6,
-    max : 1024
-  },
-  avatar : String,
-  gender: String,
-  donggop: Number,
-  noti: Array,
-  admin : String,
-  rank: Number,
-  // myList:{
-  //   type: Array,
-  // }
-  
-});
+  {
+    timestamps: false
+  }
+  );
+
+ 
 
 
-var User = mongoose.model('User', userSchema, 'users');
 
-module.exports = User;
+
+

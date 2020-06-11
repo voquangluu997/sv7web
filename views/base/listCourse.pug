@@ -4,6 +4,8 @@ head
   meta(name='viewport', content='width=device-width, initial-scale=1')
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
   link(rel='stylesheet', type='text/css', href='/style.css')
+  link(rel='icon', href='/images/logo2.jpg')
+
   script(src='https://kit.fontawesome.com/443ff89b73.js', crossorigin='anonymous')
   script(src='https://unpkg.com/scrollreveal')
   script(async='', defer='', src='https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2')
@@ -36,8 +38,7 @@ head
               td
                 .d-flex.align-items-center.justify-content-center
                   a(href=l.url ).btn.btn-sm.btn-danger.text-nowrap.text-white Xem full
-                
-                  
+include ../component/userDonggop.pug
 include ../component/footer.pug
 script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
 script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')

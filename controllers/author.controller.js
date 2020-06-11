@@ -1,5 +1,6 @@
 var Support = require('../models/support.model.js');
-module.exports.author = async function(req,res){
+
+module.exports.author = function(req,res){
 	Support.findOne().then(function(doc){
 		res.render('author/author',{
 		support:doc.support,
