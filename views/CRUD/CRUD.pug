@@ -11,14 +11,16 @@ table.table.container
     if field 
       tr
         td
-          a(href='/CRUD/manager/'+f)=f
+          a(href='/CRUD/manager/'+f).btn.btn-lg.btn-secondary=f
         td
-          if f ==='hocdan' || f ==='laptrinh'
-            a(href='CRUD/'+f+'/'+f).btn.btn-sm.btn-danger.mr-2=f
+          if f =='hocdan' || f =='laptrinh'
+            a(href='/CRUD/manager/'+f).btn.btn-sm.btn-danger.mr-2=f
           else
             a(href='/CRUD/manager/'+f+'/'+'giuaky').btn.btn-sm.btn-warning.mr-2 Giua ky
             a(href='/CRUD/manager/'+f+'/'+'cuoiky').btn.btn-sm.btn-primary Cuoi ky
   tr
     td
-      a(href='#').btn.btn-sm.btn-primary Add new item
+      a(href='#').btn.btn-success.btn-lg.p-2 Add new item
+      a(href='/crud/user').btn.btn-danger.ml-2.btn-lg.p-2 user manager
+      //- a(href='#').btn.btn-sm.btn-primary Add new item
 

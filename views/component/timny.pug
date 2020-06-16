@@ -1,0 +1,74 @@
+.col-12.jumbotron.timny.p-0
+  .row.dark-timny.blur-img
+    .col-12.intro
+      //- h3.heading.m-0.p0.col-12  Góc tranh thủ 😂😂😂
+      //- .heading-underline
+      h1.typing hello
+      
+      button.btn-success#yes(onclick='YesBtn()', style='position: absolute; left: 20%; top: 45%;', tabindex='-1') Dạ đồng ý &#x1F60D;
+      button.btn-danger#no(onmouseover='NoBtn()', onclick='NoBtn()', style='position: absolute; right: 20%; top: 45%;', tabindex='-1') Hổng thèm &#x1F612;
+
+
+script.
+  var texts = ['__ hàng thứ nhất', 'hàng thứ 2', 'hàng thứ 3' ];
+  var count =0;
+  var index =0;
+
+  var currentText ='';
+  var letter = '';
+
+  (function type(){
+    if(count === texts.length){
+    count=0;
+    }
+    currentText+=texts[count];
+     letter = currentText.slice(0,++index);
+    document.querySelector('.typing').textContent = letter ;
+    if(letter.length === currentText.length){
+    document.querySelector('.typing').textContent += '#[br]';
+    count++;
+    index=0;
+    }
+    setTimeout(type,140);
+     currentText='';
+
+  }());
+    
+
+
+  var NoBtn = function(){
+  var rInteract = Math.floor(Math.random() * 101);
+  if(rInteract <= 60){
+  move();
+  }else{
+  replace();
+  }
+  }
+  var replace = function(){
+  var no_btn = document.getElementById("no");
+  var yes_btn = document.getElementById("yes");
+  var styles_yes = window.getComputedStyle(yes_btn);
+  var top_yes = styles_yes.getPropertyValue("top");
+  var left_yes = styles_yes.getPropertyValue("left");
+  var temp_top = top_yes;
+  var temp_left = left_yes;
+  var styles_no = window.getComputedStyle(no_btn);
+  var top_no = styles_no.getPropertyValue("top");
+  var left_no = styles_no.getPropertyValue("left");
+  yes_btn.style.top = top_no;
+  yes_btn.style.left = left_no;
+  no_btn.style.top = temp_top;
+  no_btn.style.left = temp_left;
+  }
+  var move = function(){
+  var no_btn = document.getElementById("no");
+  var yes_btn = document.getElementById("yes");
+  no_btn.style.top = Math.floor(Math.random() * 400);
+  no_btn.style.left = Math.floor(Math.random() * 800);
+  }
+  var YesBtn = function(){
+  alert("Vậy là đồng ý rồi nha! 😘");
+  }
+
+  
+

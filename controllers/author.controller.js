@@ -6,9 +6,7 @@ module.exports.author = function(req,res){
 		support:doc.support,
 		unsupport:doc.unsupport
 		});
-
 	});
-
 }
 
 module.exports.support = async function(req,res){

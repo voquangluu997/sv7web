@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router(); 
 var controller = require("../controllers/base.controller");
 var multer  = require('multer');
-var authMiddleware = require('../middleware/auth.middleware.js');
+var auth = require('../middleware/auth.middleware.js');
 
 const multerConfMany = {
 	storage : multer.diskStorage({
@@ -28,15 +28,15 @@ const multerConfMany = {
 	}
 };
 
-router.get('/',controller.home);
-router.post('/',multer(multerConfMany).array('myFiles',20),controller.postDonggop);
+router.get('/',auth.authMiddleware,controller.home);
+router.post('/',auth.authMiddleware,multer(multerConfMany).array('myFiles',20),controller.postDonggop);
 
-router.get('/:field', controller.field);	
+router.get('/:field',auth.authMiddleware, controller.field);	
 
-router.get('/:field/search', controller.fieldSearch);
+router.get('/:field/search',auth.authMiddleware, controller.fieldSearch);
 
-router.get('/course/:skill',authMiddleware.authMiddleware, controller.course);
-router.get('/course/:skill/search',authMiddleware.authMiddleware, controller.courseSearch);
+router.get('/course/:skill',auth.authMiddleware, controller.course);
+router.get('/course/:skill/search',auth.authMiddleware, controller.courseSearch);
 
 
 module.exports = router;

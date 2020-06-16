@@ -23,9 +23,11 @@ head
       if message!=''
         h3.col-12.text-center=message
       table.table.container-fluid
-        tr
+        tr.d-flex.align-items.center.justify-content-center
           td
-            a(href='/CRUD/insert').btn.btn-success.btn-sm Add new user    
+            a(href='/CRUD/insert').btn.btn-success.btn-sm Add new user
+          td.text-white.ml-5.p-0.d-flex.align-items-center
+            p='Total : '+item.length     
         tr 
           td.text-white ID
           td.text-white Name
@@ -39,11 +41,16 @@ head
               td.text-white=i._id
               td.text-white=i.name
               td.text-white=i.email
-              td.text-white=i.avatar
+              td
+                a(data-fancybox='gallery', href='../../uploads/'+i.avatar)
+                  img.card-img-top(src='../../uploads/'+i.avatar,style='width: 50px; height :  50px;' )
               td.text-white=i.gender
               td.text-white=i.donggop
               td
-                a(href='/CRUD/edit/'+i._id).btn.btn-sm.btn-warning.mr-2 Edit
-                a(href='/CRUD/delete/'+i._id).btn.btn-sm.btn-danger Delete        
+                a(href='/CRUD/editUser/'+i._id).btn.btn-sm.btn-warning.mr-2 Edit
+                a(href='/CRUD/deleteUser/'+i._id).btn.btn-sm.btn-danger Delete        
         
+script(src='https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js')
+link(rel='stylesheet', href='https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css')
+script(src='https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js')
   

@@ -77,10 +77,12 @@ body {
 
 
 .dark {
+
 	background: linear-gradient(143deg, rgba(28,28,28,0.75) 0%, rgba(212,178,111,0.75) 100%);
 	color: white;
 	padding: 7rem 2rem;
 }
+
 
 h3.heading {
 	font-size: 1.9rem;
@@ -401,6 +403,7 @@ background: linear-gradient(143deg, rgba(22,204,238,1) 0%, rgba(20,162,185,1) 21
 	border: none;
 }
 
+
 /*profile other ----------------------------------*/
 
 .profileOtherAvatar{
@@ -429,13 +432,25 @@ background: linear-gradient(143deg, rgba(22,204,238,1) 0%, rgba(20,162,185,1) 21
     display: none
 }
 
-/*test nhan pham zone -------------------------------------*/
+input, input:before, input:after {
+      -webkit-user-select: initial !important;
+      -khtml-user-select: initial !important;
+      -moz-user-select: initial !important;
+      -ms-user-select: initial !important;
+      user-select: initial !important;
+     } 
 
+/*test nhan pham zone -------------------------------------*/
+/*
 #testnhanpham{
     user-select: none;
-     border: none;
+     border: none;*/
+/*}*/
+/*#hidden{
+	
+	opacity:1;
 }
-
+*//*
 #yes{
 	color : silver;
 }
@@ -488,6 +503,8 @@ background: linear-gradient(143deg, rgba(22,204,238,1) 0%, rgba(20,162,185,1) 21
     animation-timing-function: linear;
 
 }
+*/
+
 
 @keyframes type{
 	10% { opacity: 1; }
@@ -502,7 +519,7 @@ background: linear-gradient(143deg, rgba(22,204,238,1) 0%, rgba(20,162,185,1) 21
 	100% { opacity: 0;}
 
 }
-
+/*
 .main{
 	position: absolute;
     left: 50%;
@@ -513,7 +530,7 @@ background: linear-gradient(143deg, rgba(22,204,238,1) 0%, rgba(20,162,185,1) 21
 	width: 50%;
 	height: 50%;
 	margin: auto;
-}
+}*/
 /*support -------------------------------*/
 
 .group-support{
@@ -521,7 +538,161 @@ background: linear-gradient(143deg, rgba(22,204,238,1) 0%, rgba(20,162,185,1) 21
 }
 
 
+/*...... tim ny -----------------------------------*/
+/*body{
+    background: url("../images/background.png") no-repeat center;
+    background-size: cover;
+    user-select: none;
+    
+}*/
+/*
+#main{
+    user-select: none;
+    -webkit-user-select: none;
+    background: url('images/timny.jpeg') fixed cover center;
+}*/
 
+#main button {
+    background-color: #4CAF50; 
+    outline: none;
+    border: none;
+    color: white;
+    width: 96px;
+    height: 48px;
+    text-align: center;
+    font-size: 1.2rem;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+
+}
+
+#main h1{
+    font-family: sans-serif;
+    color: rgba(192, 255, 192, 0.8);
+    text-shadow:
+      0 0 1px rgba(51, 255, 51, 0.4),
+      0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+#yes {
+	left: 100px; 
+	top: 100px;
+	position: absolute;
+    /*background-color: rgba(255, 255, 255, 0.6); */
+    backdrop-filter: blur(5px);
+    color: black; 
+    /*border: 2px solid #008CBA;*/
+    border-radius: 48px;
+    color : white;
+}
+#yes:hover {
+    background-color: rgba(0, 140, 186, 0.6);
+    backdrop-filter: blur(5px);
+    color: white;
+    padding: 2px;
+
+}
+
+#no {
+    /*background-color: rgba(255, 255, 255, 0.6); */
+    backdrop-filter: blur(5px);
+    color: black; 
+    /*border: 2px solid #f44336;*/
+    border-radius: 48px;
+    color: white;
+}
+
+#no:hover {
+    background-color: rgba(244, 67, 54, 0.6);
+    backdrop-filter: blur(5px);
+    color: white;
+    padding: 2px;
+}
+
+.main{
+	 user-select: none;
+    -webkit-user-select: none;
+    backdrop-filter: blur(5px);
+	/*position: absolute;*/
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+	border: none;
+    border-radius: 6px;
+	width: 50%;
+	height: 50%;
+	margin: auto;
+}
+
+.timny{
+	background-image: url(images/timny.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    user-select: none;
+    height: 100vh;
+    /*height: auto*/
+}
+
+
+.dark-timny {
+	/*background: rgb(101,188,189);*/
+    background: linear-gradient(123deg, rgba(101,188,189,.75) 0%, rgba(195,71,37,.75) 100%);
+	/*background: linear-gradient(143deg, rgba(28,28,28,0.75) 0%, rgba(212,178,111,0.75) 100%);*/
+	color: white;
+	/*padding: 7rem 2rem;*/
+	/*position: absolute;*/
+}
+
+
+
+.blur-img{
+	height: 100%;
+}
+/*
+.type{
+	color: white ;
+	display: inline;
+	border-right:  solid #11bba3;
+	animation: blink 2s infinite; 
+	padding-right: .5rem;
+	margin: 4rem 0 0 4rem; 
+	
+}
+
+@keyframes blink{
+	50%{ border-right: none; }
+}*/
+
+.typing{
+	font
+	font-weight: bold;
+	position: relative;
+	margin-left: .6rem;
+	left: 10rem;
+	top: 5rem;
+
+}
+.typing::after{
+	content : "";
+	position: absolute;
+	width: .1rem;
+	right : -0.3px;
+	height: 5%;
+	border-right: 2px solid white; 
+	animation: blink 0.5s infinite ease; 
+}
+@keyframes blink{
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+/*.intro{
+	height: 100vh;
+	color: white;
+	display: flex;
+}*/
+/*......end timny...............................................*/
 
 
 
@@ -668,6 +839,18 @@ h3.heading {
 	left:1rem;
 	
 	font-size: .7rem;
+}
+
+#hidden{
+	visibility: hidden;
+	display: none;
+	content: '';
+	opacity:0;
+}
+
+.video{
+	width:560px ;
+	height:400px;
 }
 
 

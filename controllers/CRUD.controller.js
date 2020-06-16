@@ -1,6 +1,7 @@
 var Item = require('../models/item.model');
 var Subject = require('../models/subject.model');
 var User = require('../models/user.model');
+var Course = require('../models/course.model');
 module.exports.CRUD = function(req,res){
 	var field = ['daicuong', 'chuyennganh', 'avnl', 'toeic', 'hocdan', 'laptrinh'];
 	res.render('CRUD/CRUD',{
@@ -9,7 +10,7 @@ module.exports.CRUD = function(req,res){
 };
 
 module.exports.manager = function(req, res){
-	Item.find({field: req.params.field, type: req.params.type }).then(function(item){
+	Item.findAll({where :{field: req.params.field, type: req.params.type }}).then(function(item){
 		res.render('CRUD/CRUD subject/manager',{
 			item : item,
 			lastPart: req.params.field + '/' + req.params.type
@@ -21,7 +22,7 @@ module.exports.search= function(req,res){
 	var q = req.query.q ;
 	var message='';
 
-	Item.find({ field: req.params.field, type : req.params.type}).then(function(item){
+	Item.findAll({where :{ field: req.params.field, type : req.params.type}}).then(function(item){
 		var matched = item.filter(function(i){
 			return i.name.toLowerCase().indexOf(q.toLowerCase())!== -1;
 		});
@@ -49,7 +50,7 @@ module.exports.postInsert= function(req, res){
 module.exports.edit = async function(req, res){
 
 	var  q= req.params._id;
-	 	Item.find().then(function(doc){
+	 	Item.findAll().then(function(doc){
 	 		var matched = doc.filter(function(i){
 			return i._id==q._id;	
 			});
@@ -116,14 +117,22 @@ function updateItem(req,res){
 
 module.exports.delete = function(req,res){
 
-	Item.findOneAndDelete({_id:req.params._id}).then(function(doc){
+	Item.destroy({_id:req.params._id}).then(function(doc){
 		res.redirect('/CRUD/manager/'+doc.field + '/' + doc.type);
 	});
 };
 
 
+module.exports.deleteUser = function(req,res){
+
+	User.destroy({where : {_id:req.params._id }}).then(function(doc){
+		res.redirect('/CRUD/user');
+	});
+};
+
+
 module.exports.managerField = function(req,res){
-	Subject.find({field: req.params.field }).then(function(doc){
+	Course.findAll({where :{field: req.params.field }}).then(function(doc){
 		res.render('CRUD/CRUD subject/managerField',{
 			item : doc,
 			lastPart: req.params.field 
@@ -156,7 +165,7 @@ module.exports.postInsertField = function(req, res){
 module.exports.searchField= function(req,res){
 	var q = req.query.q ;
 	var message='';
-	Subject.find({ field: req.params.field}).then(function(item){
+	Subject.findAll( {where:{ field: req.params.field}}).then(function(item){
 		var matched = item.filter(function(i){
 			return i.name.toLowerCase().indexOf(q.toLowerCase())!== -1;
 		});
@@ -172,7 +181,7 @@ module.exports.searchField= function(req,res){
 };
 
 module.exports.deleteField = function(req,res){
-	Subject.findOneAndDelete({_id : req.params._id}).then(function(doc){
+	Subject.destroy({_id : req.params._id}).then(function(doc){
 		res.redirect('/CRUD/deleteField/'+doc._id);
 	});
 };
@@ -183,7 +192,7 @@ module.exports.deleteField = function(req,res){
 
 module.exports.user = async function(req,res){
 
-	var userList =await User.find() ;
+	var userList =await User.findAll() ;
 
 	res.render('CRUD/CRUD user/CRUDuser',{
 		item: userList
@@ -195,7 +204,7 @@ module.exports.userSearch= function(req,res){
 	var q = req.query.q ;
 	var message='';
 
-	User.find({ }).then(function(item){
+	User.findAll({ }).then(function(item){
 		var matched = item.filter(function(i){
 			return (i.name.toLowerCase().indexOf(q.toLowerCase())!== -1)
 			|| (i._id == q)

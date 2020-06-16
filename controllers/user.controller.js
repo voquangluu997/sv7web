@@ -4,19 +4,15 @@ var  User  = require('../models/user.model');
 var middleware = require('../middleware/auth.middleware');
 var fs = require('fs');
 
-module.exports.profile = function(req,res){
-
-	middleware.checkLoggedMiddleware().then( async function(userId){
+module.exports.profile = async function(req,res){
+	var matched = await User.findOne({where : { _id : req.user._id}});
 			res.render('users/profile',{
-			userInfo : userId
+			userInfo : matched
 			});
-		
-	});
-
 }
 
-	module.exports.postProfile = function(req,res){
-		middleware.checkLoggedMiddleware().then( async function(matched){		
+	module.exports.postProfile = async function(req,res){
+		var matched = await User.findOne( {where :{ _id : req.user._id}});	
 			var updateUser = matched;
 			if(req.file){
 				
@@ -52,14 +48,10 @@ module.exports.profile = function(req,res){
 						var saveUser = await updateUser.save();
 				res.redirect('profile');
 			}
-				
-		});
-
 	};
 
 	module.exports.seeProfile = async function(req,res){
 		var matched = await User.findOne({where :  {_id: req.params._id } });
-
 			res.render('users/profileOther',{
 			userInfo: matched
 			});

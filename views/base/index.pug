@@ -5,16 +5,22 @@ head
   meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
   meta(http-equiv='Content-Type', content='text/html; charset=ISO-8859-1')
   link(rel='icon', href='/images/logo2.jpg')
-
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
-  link(rel='stylesheet', type='text/css', href='style.css')
+  link(rel='stylesheet', type='text/css', href='../../style.css')
   script(src='https://kit.fontawesome.com/443ff89b73.js', crossorigin='anonymous')
   script(src='https://unpkg.com/scrollreveal')
   script(async='', defer='', src='https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2')
   title sv7
+  script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-169273812-1')
+  <script data-ad-client="ca-pub-7595282631004237" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-169273812-1');
 include ../component/avatar.pug
 include ../component/navbar.pug
-      
 #cources.offset
   .fixed-background
     .row.dark.text-center
@@ -35,11 +41,11 @@ include ../component/navbar.pug
           .card.mb-lg-5(style='max-width: 540px;')
             .row.no-gutters
               .col-4
-                a(href='/hocdan')
-                  img.card-img(src='images/guitar.jpg', alt='')
+                a(href='/course/hocdan')
+                  img.card-img(src='../../images/guitar.jpg', alt='')
               .col-8
                 .card-body
-                  a.course-title(href='/hocdan')
+                  a.course-title(href='/course/hocdan')
                     h6.card-title H&#x1ECC;C GUITAR
                   p.card-text-md
                     small.text-muted CON &Dstrok;&#x1AF;&#x1EDC;NG NHANH NH&#x1EA4;T &Dstrok;&Acirc;M TH&#x1EB2;NG &Dstrok;&#x1EBE;N TIM CRUSH
@@ -47,11 +53,11 @@ include ../component/navbar.pug
           .card.mb-lg-5(style='max-width: 540px;')
             .row.no-gutters
               .col-4
-                a(href='/laptrinh')
-                  img.card-img(src='images/it.jpg')
+                a(href='/course/laptrinh')
+                  img.card-img(src='../../images/it.jpg')
               .col-8
                 .card-body
-                  a.course-title(href='/laptrinh')
+                  a.course-title(href='/course/laptrinh')
                     h6.card-title H&#x1ECC;C L&#x1EAC;P TR&Igrave;NH
                   p.card-text
                     small.text-muted
@@ -66,7 +72,10 @@ include ../component/top-rank.pug
 // end clients
 // start tips section
 
-include ../component/testnhanpham.pug
+//- include ../component/testnhanpham.pug
+include ../component/timny.pug
+include ../component/video.pug
+
 
 // end tips section
 include ../component/userDonggop.pug

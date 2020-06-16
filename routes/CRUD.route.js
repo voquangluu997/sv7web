@@ -17,8 +17,11 @@ router.post('/insertField',controller.postInsertField);
 router.get('/deleteField/:_id',controller.deleteField);
 
 
+
 router.get('/user', controller.user);
 router.get('/user/search', controller.userSearch);
+router.get('/deleteUser/:_id',controller.deleteUser);
+
 
 
 module.exports = router;	

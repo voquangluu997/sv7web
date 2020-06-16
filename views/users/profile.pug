@@ -21,14 +21,13 @@ include ../component/navbar.pug
         .heading-underline
       .col-3
       form(action ='/user/profile', method ='post',enctype="multipart/form-data").col-12.col-md-6
-        .avt.col-12.mb-5
+        .avt.col-12.mb-2
           .img-avt.d-flex.flex-column.align-items-center
               
               label.profile-image( for='file', style = "background-image: url(../uploads/" +userInfo.avatar +");" )
 
               input( id ='file', type='file', name='avatar', style = 'visibility:hidden')
-              button.btn.btn-outline-light.btn-lg(type='button', disabled='') Profile picture
-
+             
         .form-group.row
           label.col-3.col-md-2.col-form-label(for='inputName') Name
           .col-sm-10

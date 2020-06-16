@@ -10,6 +10,7 @@ head
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
   script(src='https://kit.fontawesome.com/443ff89b73.js', crossorigin='anonymous')
   link(rel='icon', href='images/logo2.jpg')
+
 include ../component/navbar.pug
 #cources.offset
   .fixed-background
@@ -17,8 +18,6 @@ include ../component/navbar.pug
       .col-12
         h3.heading Đăng nhập
         .heading-underline
-
-
       .col-12.d-flex.justify-content-center
         //- .col-2//
         form.form.col-12.col-md-6(action="/auth/login", method="POST")
@@ -51,7 +50,27 @@ include ../component/navbar.pug
               | Log in with Google
           a.register.d-flex.mt-3.alert-link.text-light(href='/auth/register', role='alert' disabled='')
             | Đăng ký nếu chưa có tài khoản
-        
+
+//- script.
+//-   $.ajax({
+//-   url: '/auth/login',
+//-   type: 'get',
+//-   cache: false,
+//-   data: { field1: 1, field2: 2 },
+//-   success: function(data){
+//-   alert('Success!')
+//-   }
+//-   , error: function(jqXHR, textStatus, err){
+//-   alert('text status '+textStatus+', err '+err)
+//-   }
+//-   });
+script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
+script(src='https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js')
+link(rel='stylesheet', href='https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css')
+script(src='https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js')
+
 
 
 

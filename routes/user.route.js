@@ -3,6 +3,7 @@ var router = express.Router();
 
 var multer  = require('multer');
 var controller = require("../controllers/user.controller");
+var auth = require('../middleware/auth.middleware.js');
 const multerConf = {
 	storage : multer.diskStorage({
 	destination: function(req,file,cb){
@@ -26,8 +27,8 @@ const multerConf = {
 	}
 };
 
-router.post('/profile',multer(multerConf).single('avatar'),controller.postProfile)
-router.get('/profile',controller.profile);	
+router.post('/profile',auth.authMiddleware,multer(multerConf).single('avatar'),controller.postProfile)
+router.get('/profile', auth.authMiddleware,controller.profile);	
 router.get('/profile/:_id',controller.seeProfile);	
 
 
