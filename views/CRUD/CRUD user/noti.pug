@@ -1,0 +1,19 @@
+doctype html
+head
+  title
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+  link(rel='stylesheet', type='text/css', href='../../../../style.css')
+  script(src='https://kit.fontawesome.com/443ff89b73.js', crossorigin='anonymous')
+
+.container.col-5
+  h1.text-center SEND NOTI
+
+  form( action = "/CRUD/noti",  method = "post" )
+    .form-group
+      label(for = 'noti') Noti
+      input.form-control#noti(type = 'text', name= 'noti' , placeholder = 'enter noti') 
+      label(for = 'email') to email
+      input.form-control#email(type = 'text', name= 'email', placeholder = 'enter email', value = 'all') 
+    button.btn.btn-primary(type='submit') Submit

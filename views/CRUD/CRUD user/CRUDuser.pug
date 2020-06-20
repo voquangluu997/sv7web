@@ -14,7 +14,7 @@ head
         h3.heading  CRUD USER 
         .heading-underline
       .col-12.mb-5
-        form.search-form(action='/CRUD/user/search',method="GET")
+        form.search-form(action='/CRUD/managerUser/search',method="GET")
           input.search-input(type='text', name='q', placeholder='Tìm kiếm..')
           button(type="submit" )
             i.fas.fa-search
@@ -25,7 +25,8 @@ head
       table.table.container-fluid
         tr.d-flex.align-items.center.justify-content-center
           td
-            a(href='/CRUD/insert').btn.btn-success.btn-sm Add new user
+            a(href='auth/register').btn.btn-success.btn-sm Add new user
+            a(href='/crud').btn.btn-success.btn-sm.ml-2 Back
           td.text-white.ml-5.p-0.d-flex.align-items-center
             p='Total : '+item.length     
         tr 
@@ -33,6 +34,7 @@ head
           td.text-white Name
           td.text-white Email
           td.text-white Avatar
+          td.text-white Rank
           td.text-white Gender 
           td.text-white Đóng góp
         each i in item
@@ -44,6 +46,7 @@ head
               td
                 a(data-fancybox='gallery', href='../../uploads/'+i.avatar)
                   img.card-img-top(src='../../uploads/'+i.avatar,style='width: 50px; height :  50px;' )
+              td.text-white=i.rank
               td.text-white=i.gender
               td.text-white=i.donggop
               td

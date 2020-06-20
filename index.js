@@ -8,6 +8,9 @@ var bodyParse = require('body-parser');
 var auth = require('./middleware/auth.middleware');
 var cookieParser = require('cookie-parser');
 
+var passport = require('passport');
+var session = require('express-session');
+
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
@@ -34,6 +37,14 @@ con.connect(function(err) {
   console.log("Connected!!!")
 });
 
+
+// middle wares facebook
+require('./config/passport')(passport);
+app.use(session({secret: 'process.env.SECRET_KEY',
+ 				resave:true,
+ 				saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/CRUD',auth.authAdmin,CRUDRoute);
 app.use('/',baseRoute);	

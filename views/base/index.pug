@@ -14,6 +14,7 @@ head
   script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-169273812-1')
   <script data-ad-client="ca-pub-7595282631004237" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
+
   script.
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -80,6 +81,25 @@ include ../component/video.pug
 // end tips section
 include ../component/userDonggop.pug
 include ../component/footer.pug
+// Load Facebook SDK for JavaScript
+#fb-root
+script.
+  window.fbAsyncInit = function() {
+  FB.init({
+  xfbml            : true,
+  version          : 'v7.0'
+  });
+  };
+  (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+// Your Chat Plugin code
+.fb-customerchat(attribution='setup_tool', page_id='2405136319710067', theme_color='#fa3c4c', logged_in_greeting='Hi! Cho mình 1 nhận xét để  khích lệ và cải thiện web tốt hơn bạn nhé^^', logged_out_greeting='Hi! Cho mình 1 nhận xét để  khích lệ và cải thiện web tốt hơn bạn nhé^^')
+
 script.
   window.sr = ScrollReveal();
   sr.reveal('.jumbotron',{duration:1000});

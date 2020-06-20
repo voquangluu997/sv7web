@@ -69,8 +69,20 @@ include ../component/navbar.pug
                   input#female.form-check-input(type='radio', name='gender', value='Female', checked = '')
                   label.form-check-label(for='Female') Female
         .form-group.row
-          .col-12.d-flex.justify-content-center 
-            input.btn.btn-outline-light.btn-lg(type='submit' , disable='',value = 'Update profile') 
+          label.col-md-2.col-3.col-form-label.text-nowrap(for='oldPass' ) Password
+          .col-sm-10
+            input#oldPass.btn.btn-outline-light.form-control(type='password', style = 'color : #1ebba3; font-weight : bold; font-size : 1.5rem;' name = 'oldPass'   )
+        .form-group.row
+          label.col-md-2.col-3.col-form-label.text-nowrap(for='newPass') New password
+          .col-sm-10
+            input#newPass.btn.btn-outline-light.form-control(type='password', style = 'color : #1ebba3; font-weight : bold; font-size : 1.5rem;' name = 'newPass'  )
+
+        if message == 'Great! Everything has been changed!! '
+          p.alert.alert-success=message
+        if message =='Password length must be at least 6 characters long and matched!'
+          p.alert.alert-danger=message    
+        .col-12.d-flex.justify-content-center 
+          input.btn.btn-outline-light.btn-lg.mt-3(type='submit' , disable='',value = 'Update profile') 
 include ../component/footer.pug
            
 

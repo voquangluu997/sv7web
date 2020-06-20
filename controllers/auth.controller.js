@@ -2,9 +2,11 @@
 var User = require('../models/user.model');
 var jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 const { registerValidation, loginValidation } = require('../validation/validation');
 
-const saltRounds = 10;
+
 const myPlaintextPassword = 's0/\/\P4$$w0rD';
 
 module.exports.register =  function(req,res){
@@ -14,12 +16,12 @@ module.exports.register =  function(req,res){
 module.exports.postRegister = async function(req,res){
 	const { error } = registerValidation(req.body);
 	console.log(error + 'err');
-	if(error) res.render('auth/register',{ noti: error.details[0].message});
 	
+	if(error) res.render('auth/register',{ noti: error.details[0].message});
+	else{
 		const emailExist = await User.findOne({where : {email: req.body.email}});
 		if(emailExist) res.render('auth/register',{ noti: 'Email already exists.'});
-
-		
+		else{
 			const user = new User({
 			_id: Date.now().toString(),
 			name: req.body.name,
@@ -31,7 +33,6 @@ module.exports.postRegister = async function(req,res){
 			rank : 99,
 			noti : 'Chào mừng thành viên mới!, '+ ' Đóng góp đề thi để sớm có tên trên bảng vinh danh \"Heros rank \" nhé!,',
 			});
-
 			user.password = await bcrypt.hashSync(req.body.password,saltRounds);
 			try{
 				const saveUser = await user.save();
@@ -43,6 +44,10 @@ module.exports.postRegister = async function(req,res){
 			}catch(err){
 				throw err;
 			}
+		}
+
+	}
+			
 };
 
 module.exports.login =  function(req,res){
@@ -50,6 +55,7 @@ module.exports.login =  function(req,res){
 };
 
 module.exports.postLogin = async function(req, res){
+
 	try{
 		const { error } = loginValidation(req.body);
 		if(error) res.render('auth/login', { noti : error.details[0].message});

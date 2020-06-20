@@ -11,8 +11,7 @@ module.exports.authMiddleware = async function(req,res,next){
 				jwt.verify(token, process.env.SECRET_KEY,function(err,payload){
 				if(payload){
 					req.user = payload;
-					// req.locals.userInfo=user;
-					
+					// req.locals.userInfo=user;		
 					next();
 				}else{
 					res.render('auth/login',{

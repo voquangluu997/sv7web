@@ -1,37 +1,41 @@
-.col-12.jumbotron.timny.p-0
+.col-12.jumbotron.timny.p-0#hidden
   .row.dark-timny.blur-img
-    .col-12.intro
-      //- h3.heading.m-0.p0.col-12  Góc tranh thủ 😂😂😂
-      //- .heading-underline
-      h1.typing hello
-      
-      button.btn-success#yes(onclick='YesBtn()', style='position: absolute; left: 20%; top: 45%;', tabindex='-1') Dạ đồng ý &#x1F60D;
+    .col-12
+      h3.heading.mt-5.p0.col-12  TÁN GÁI ĐẠI CƯƠNG😂
+      .heading-underline
+      .col-12.intro
+        pre.typing
+        pre.displayText
+     
+      button.btn-success#yes(onclick='YesBtn()', style='position: absolute; left: 20%; top: 45%;', tabindex='-1') Dạ iêm đồng ý &#x1F60D;
       button.btn-danger#no(onmouseover='NoBtn()', onclick='NoBtn()', style='position: absolute; right: 20%; top: 45%;', tabindex='-1') Hổng thèm &#x1F612;
 
-
 script.
-  var texts = ['__ hàng thứ nhất', 'hàng thứ 2', 'hàng thứ 3' ];
+  var texts = ['__Chào em.. Anh đứng đây từ chiều chỉ để nói với em rằng...','__Em có muốn quãng thời gian sinh viên còn lại..','__Được nắm tay ai đó, cùng đi ăn, cùng xem phim, cùng hú hí với nhau mọi điều về thế giới không?','Hãy để anh trải nghiệm những điều đó cùng em nhé...','❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤❤️❤️❤️❤️❤️❤️❤️❤️x3000 trái tim!!'];
   var count =0;
   var index =0;
 
   var currentText ='';
   var letter = '';
+  var displayText ='';
 
   (function type(){
+    
     if(count === texts.length){
     count=0;
     }
     currentText+=texts[count];
      letter = currentText.slice(0,++index);
-    document.querySelector('.typing').textContent = letter ;
+    document.querySelector('.typing').textContent = letter;
     if(letter.length === currentText.length){
-    document.querySelector('.typing').textContent += '#[br]';
     count++;
+    displayText += letter+'\n';
+    if(count==texts.length) displayText='';
+    document.querySelector('.displayText').textContent = displayText;
     index=0;
     }
-    setTimeout(type,140);
+    setTimeout(type,100);
      currentText='';
-
   }());
     
 
@@ -67,7 +71,7 @@ script.
   no_btn.style.left = Math.floor(Math.random() * 800);
   }
   var YesBtn = function(){
-  alert("Vậy là đồng ý rồi nha! 😘");
+  alert("Biết là em sẽ đồng ý mà 😘, nhắn tin cho anh ngay nhé, a không thể chờ đợi để được gặp em lâu hơn nữa, yêu em 😘");
   }
 
   

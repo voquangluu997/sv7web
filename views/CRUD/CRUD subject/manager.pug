@@ -31,8 +31,8 @@ head
           td.text-white ID
           td.text-white Name
           td.text-white Url
-        each i in item
-          if item 
+        if item
+          each i in item
             tr
               td.text-white=i._id.toUpperCase()
               td.text-white=i.name.toUpperCase()
@@ -40,6 +40,7 @@ head
                 a(href=i.url).text-white=i.url
               td
                 a(href='/CRUD/edit/'+i._id).btn.btn-sm.btn-warning.mr-2 Edit
-                a(href='/CRUD/delete/'+i._id).btn.btn-sm.btn-danger Delete        
+                a(href='/CRUD/delete/'+i._id).btn.btn-sm.btn-danger.mr-2 Delete
+                        
         
   

@@ -7,6 +7,11 @@ head
   link(rel='stylesheet', type='text/css', href='../../../../style.css')
   script(src='https://kit.fontawesome.com/443ff89b73.js', crossorigin='anonymous')
 
+-var searchZone 
+  if lastPart == 'laptrinh' || lastPart =='hocdan' 
+    -searchZone='Course/'
+  else
+    -searchZone='Field/' 
 #cources.offset
   .fixed-background
     .row.dark.text-center
@@ -14,30 +19,39 @@ head
         h3.heading  CRUD MANAGER FIELD
         .heading-underline
       .col-12.mb-5
-        form.search-form(action='/CRUD/manager/'+lastPart + '/search',method="GET")
+        form.search-form(action='/CRUD/manager' +searchZone+lastPart + '/search',method="GET")
           input.search-input(type='text', name='q', placeholder='Nhập tên môn..')
           button(type="submit" )
             i.fas.fa-search
-        
-
+              
       if message!=''
         h3.col-12.text-center=message
-      table.table.container.col-10
+      table.table.container-fluid.col-12
         tr
-          td
-            a(href='/CRUD/insertField').btn.btn-success.btn-sm Add new item
+          td.d-flex.text-nowrap 
+            if searchZone == 'Field/'
+              a(href='/CRUD/insertField').btn.btn-success.btn-sm Add new item
+            else
+              a(href='/CRUD/insertCourse').btn.btn-success.btn-sm Add new item
             a(href='/crud').btn.btn-success.btn-sm.ml-2 Back 
-        tr 
-          td.text-white ID
-          td.text-white Name
+        tr.text-white 
+          td ID
+          td Name
+          td Url
+
         each i in item
           if item 
-            tr
-              td.text-white=i._id.toUpperCase()
-              td.text-white=i.name.toUpperCase()
+            tr.text-white
+              td=i._id.toUpperCase()
+              td=i.name.toUpperCase()
+              if searchZone == 'Field/'
+                td nothing
+              else
+                td
+                  a(href = i.url).text-white Get link
               td
-                a(href='/CRUD/manager/'+lastPart+'edit').btn.btn-sm.btn-warning.mr-2 Edit
-                a(href='/CRUD/deleteField/'+i._id).btn.btn-sm.btn-danger Delete        
+                a(href='/CRUD/edit'+searchZone + i._id).btn.btn-sm.btn-warning.mr-2 Edit
+                a(href='/CRUD/delete'+searchZone+i._id).btn.btn-sm.btn-danger Delete        
            
 
   

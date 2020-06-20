@@ -1,0 +1,26 @@
+doctype html
+head
+  title
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+  link(rel='stylesheet', type='text/css', href='../../../../style.css')
+  script(src='https://kit.fontawesome.com/443ff89b73.js', crossorigin='anonymous')
+
+.container.col-5
+  h1.text-center Edit Item
+  form( action = "/CRUD/edit/"+item._id,  method = "post" )
+    .form-group
+      label(for='id') ID
+      input#id.form-control(type='text', name='id', placeholder='Enter id' value=item._id)
+      label(for='name') Name
+      input#name.form-control(type='text',  name='name', placeholder='Enter name', value=item.name)
+      
+      label(for='url') URL
+      input#url.form-control(type='text', name='url', placeholder='Enter url', value=item.url)
+      label(for='field') Field
+      input#field.form-control(type='text', name='field' placeholder='Enter field', value=item.field)
+      label(for='type') Type
+      input#type.form-control(type='text', name='type' placeholder='Enter type', value=item.type)
+      
+    button.btn.btn-primary(type='submit') Submit

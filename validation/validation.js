@@ -23,4 +23,14 @@ module.exports.loginValidation = function(data){
 }
 
 
+module.exports.updateValidation = function(data){
+	const schema = {
+	name: Joi.string(),
+	oldPass : Joi.string().min(6),
+	newPass : Joi.string().min(6)
+	  };
+	return Joi.validate(data, schema);
+
+}
+
 

@@ -41,7 +41,7 @@ include ../component/navbar.pug
             button.btn.btn-light.btn-md.text-nowrap.mt-3(type='submit',style = 'margin-right: 80px') Log in
             //- a(href='/auth/forgotpassword')  Forgot password?
           .col-sm-12.mt-2
-            a(href="/auth/facebook").disabled.btn.btn-block.btn-facebook.btn-social
+            a(href="/auth/facebook").btn.btn-block.btn-facebook.btn-social
               i.fa.fa-facebook
               | Log in with Facebook
           .col-sm-12.mt-2
@@ -64,6 +64,25 @@ include ../component/navbar.pug
 //-   alert('text status '+textStatus+', err '+err)
 //-   }
 //-   });
+// Load Facebook SDK for JavaScript
+#fb-root
+script.
+  window.fbAsyncInit = function() {
+  FB.init({
+  xfbml            : true,
+  version          : 'v7.0'
+  });
+  };
+  (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+// Your Chat Plugin code
+.fb-customerchat(attribution='setup_tool', page_id='2405136319710067', theme_color='#fa3c4c', logged_in_greeting='Hi! Cho mình 1 nhận xét để  khích lệ và cải thiện web tốt hơn bạn nhé^^', logged_out_greeting='Hi! Cho mình 1 nhận xét để  khích lệ và cải thiện web tốt hơn bạn nhé^^')
+
 script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
 script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')
 script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')

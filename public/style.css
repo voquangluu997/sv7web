@@ -60,7 +60,7 @@ body {
 /*------------------course section----------------- */
 
 .fixed-background {
-	background-image: url(images/bk.jpg);
+	background-image: url(images/timny.jpg);
 	background-attachment: fixed;
 	background-position:center;
 	background-repeat: no-repeat;
@@ -446,7 +446,7 @@ input, input:before, input:after {
     user-select: none;
      border: none;*/
 /*}*/
-/*#hidden{
+#hidden{
 	
 	opacity:1;
 }
@@ -503,7 +503,7 @@ input, input:before, input:after {
     animation-timing-function: linear;
 
 }
-*/
+
 
 
 @keyframes type{
@@ -539,18 +539,7 @@ input, input:before, input:after {
 
 
 /*...... tim ny -----------------------------------*/
-/*body{
-    background: url("../images/background.png") no-repeat center;
-    background-size: cover;
-    user-select: none;
-    
-}*/
-/*
-#main{
-    user-select: none;
-    -webkit-user-select: none;
-    background: url('images/timny.jpeg') fixed cover center;
-}*/
+
 
 #main button {
     background-color: #4CAF50; 
@@ -579,10 +568,8 @@ input, input:before, input:after {
 	left: 100px; 
 	top: 100px;
 	position: absolute;
-    /*background-color: rgba(255, 255, 255, 0.6); */
     backdrop-filter: blur(5px);
     color: black; 
-    /*border: 2px solid #008CBA;*/
     border-radius: 48px;
     color : white;
 }
@@ -595,10 +582,8 @@ input, input:before, input:after {
 }
 
 #no {
-    /*background-color: rgba(255, 255, 255, 0.6); */
-    backdrop-filter: blur(5px);
+   backdrop-filter: blur(5px);
     color: black; 
-    /*border: 2px solid #f44336;*/
     border-radius: 48px;
     color: white;
 }
@@ -614,7 +599,6 @@ input, input:before, input:after {
 	 user-select: none;
     -webkit-user-select: none;
     backdrop-filter: blur(5px);
-	/*position: absolute;*/
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -626,23 +610,19 @@ input, input:before, input:after {
 }
 
 .timny{
-	background-image: url(images/timny.jpg);
+	background-image: url(/images/timny.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     user-select: none;
     height: 100vh;
-    /*height: auto*/
 }
 
 
 .dark-timny {
-	/*background: rgb(101,188,189);*/
+	
     background: linear-gradient(123deg, rgba(101,188,189,.75) 0%, rgba(195,71,37,.75) 100%);
-	/*background: linear-gradient(143deg, rgba(28,28,28,0.75) 0%, rgba(212,178,111,0.75) 100%);*/
 	color: white;
-	/*padding: 7rem 2rem;*/
-	/*position: absolute;*/
 }
 
 
@@ -650,7 +630,7 @@ input, input:before, input:after {
 .blur-img{
 	height: 100%;
 }
-/*
+
 .type{
 	color: white ;
 	display: inline;
@@ -658,22 +638,30 @@ input, input:before, input:after {
 	animation: blink 2s infinite; 
 	padding-right: .5rem;
 	margin: 4rem 0 0 4rem; 
-	
 }
 
-@keyframes blink{
-	50%{ border-right: none; }
-}*/
 
 .typing{
-	font
+	color:  white;
+	font-size: 1.4rem;
 	font-weight: bold;
 	position: relative;
 	margin-left: .6rem;
-	left: 10rem;
-	top: 5rem;
+	left: 5rem;
+	
 
 }
+.displayText{
+	color: white;
+	opacity: 0.8;
+	font-size: 1.4rem;
+	font-weight: bold;
+	position: relative;
+	margin-left: .6rem;
+	left: 5rem;
+	overflow: hidden;
+}
+/*
 .typing::after{
 	content : "";
 	position: absolute;
@@ -681,17 +669,18 @@ input, input:before, input:after {
 	right : -0.3px;
 	height: 5%;
 	border-right: 2px solid white; 
-	animation: blink 0.5s infinite ease; 
-}
+	animation: blink .5s infinite ease;
+	overflow:hidden; 
+}*/
 @keyframes blink{
 	0% { opacity: 0; }
 	100% { opacity: 1; }
 }
-/*.intro{
-	height: 100vh;
-	color: white;
-	display: flex;
-}*/
+
+.intro{
+	height: 100%;
+	overflow: hidden;
+}
 /*......end timny...............................................*/
 
 

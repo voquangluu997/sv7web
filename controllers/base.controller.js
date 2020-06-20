@@ -7,13 +7,25 @@ var middleware = require('../middleware/auth.middleware');
 
 module.exports.home =async function(req,res){
 	var matched = await User.findAll();
+		// matched.forEach( async function(e){
+		// 	var x = e.email.split('@');
+		// 	x[1] = '@gmail.com';
+		// 	User.update(
+		// 		{
+		// 			email : x.join(''),
+		// 		},{
+		// 			returning : true,
+		// 			where : {_id : e._id}
+		// 		})
+		// })
+
 	 var k = 0;
 	 var top1=[];
 	 var top25=[];
 	 var top610=[];
 	 var temp;
 	 for(var i=0; i<matched.length-1;i++)
-	 	for(var j=i+1;j<matched.length;j++){
+	 	for(var j=i+1;j<matched.length;j++){	
 	 		if(matched[i].dataValues.donggop < matched[j].dataValues.donggop){
 	 			temp= matched[i].dataValues;
 	 			matched[i].dataValues =   matched[j].dataValues;
